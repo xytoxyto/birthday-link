@@ -1,1 +1,1 @@
-export default function Page() { return <div>Signup Page</div> }
+export default function Page() { return (<div className='min-h-screen flex items-center justify-center bg-white text-gray-900'><h1 className='text-3xl font-bold'>🎂 Birthday Link – Signup</h1><p className='mt-2 text-lg'>Create your personal birthday journey. Exclusive. Effortless. Yours.</p></div>); }
