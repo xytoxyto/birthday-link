@@ -1,1 +1,11 @@
-export default function Page() { return (<div className='min-h-screen flex items-center justify-center bg-white text-gray-900'><h1 className='text-3xl font-bold'>🎂 Birthday Link – Create Event</h1><p className='mt-2 text-lg'>Host the ultimate shared birthday experience.</p></div>); }
+export default function CreateEventPage() {
+  return (
+    <main className="min-h-screen flex flex-col items-center justify-center bg-white text-gray-900 p-8">
+      <h1 className="text-4xl font-bold mb-4">🎂 Host a Birthday Link Celebration</h1>
+      <p className="text-lg max-w-xl text-center">
+        Create and customize your own group birthday event.
+        Choose the perfect venue, guest list, and premium experiences to make it unforgettable.
+      </p>
+    </main>
+  );
+}
