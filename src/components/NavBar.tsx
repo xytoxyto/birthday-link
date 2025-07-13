@@ -7,7 +7,8 @@ export default function NavBar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="bg-gradient-to-r from-blue-900 to-purple-800 text-white shadow-md">
+    <header className="bg-gradient-to-r from-birthday-blue to-birthday-purple text-white shadow-md">
+
       <div className="max-w-7xl mx-auto flex justify-between items-center p-4">
         <h1 className="text-xl font-bold">
           <Link href="/">🎂 Birthday Link</Link>

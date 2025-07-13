@@ -13,7 +13,10 @@ export default function HomePage() {
             Never celebrate alone again. Match with those who share your birthday.
             Curated celebrations. Premium service. Your day, truly celebrated.
           </p>
-          <Link href="/signup" className="inline-block bg-blue-700 text-white px-6 py-3 rounded-full shadow hover:bg-blue-800">
+          <Link
+            href="/signup"
+            className="inline-block bg-birthday-gold text-white px-6 py-3 rounded-full shadow hover:bg-yellow-500 transition duration-300"
+          >
             Join Now
           </Link>
         </div>
