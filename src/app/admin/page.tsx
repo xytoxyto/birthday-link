@@ -30,4 +30,3 @@ export default function HomePage() {
     </main>
   );
 }
-import 'tailwindcss/tailwind.css';
