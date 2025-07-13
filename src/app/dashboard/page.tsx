@@ -7,17 +7,17 @@ export default function DashboardPage() {
       <NavBar />
 
       <section className="flex-grow flex items-center justify-center text-center p-8">
-        <div className="max-w-xl">
-          <h1 className="text-4xl font-bold mb-4">🎂 Your Birthday Dashboard</h1>
+        <div className="max-w-2xl">
+          <h1 className="text-4xl font-bold mb-4">🎂 Your Birthday Link Dashboard 🎉</h1>
           <p className="text-lg text-gray-700 mb-6">
-            Manage your birthday plans, see your matched celebrations,
-            and customize your perfect shared experience.
+            See your matched birthday celebrations, upcoming events, and manage your RSVPs.
+            Birthday Link makes sure you never celebrate alone.
           </p>
           <Link
             href="/events"
             className="inline-block bg-birthday-gold text-white px-6 py-3 rounded-full shadow hover:bg-yellow-500 transition duration-300"
           >
-            Explore Events
+            View Events
           </Link>
         </div>
       </section>

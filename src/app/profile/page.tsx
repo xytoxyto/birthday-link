@@ -7,17 +7,17 @@ export default function ProfilePage() {
       <NavBar />
 
       <section className="flex-grow flex items-center justify-center text-center p-8">
-        <div className="max-w-xl">
-          <h1 className="text-4xl font-bold mb-4">🎂 Your Birthday Link Profile</h1>
+        <div className="max-w-2xl">
+          <h1 className="text-4xl font-bold mb-4">🎂 Your Birthday Link Profile 🎉</h1>
           <p className="text-lg text-gray-700 mb-6">
-            Manage your personal details, see upcoming events,
-            and make sure your next birthday celebration is exactly how you want it.
+            Manage your birthday preferences, customize your profile, and make sure you’re
+            matched with the perfect birthday crew.
           </p>
           <Link
             href="/dashboard"
             className="inline-block bg-birthday-gold text-white px-6 py-3 rounded-full shadow hover:bg-yellow-500 transition duration-300"
           >
-            Return to Dashboard
+            Back to Dashboard
           </Link>
         </div>
       </section>

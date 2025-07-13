@@ -7,11 +7,11 @@ export default function EventDetailPage() {
       <NavBar />
 
       <section className="flex-grow flex items-center justify-center text-center p-8">
-        <div className="max-w-xl">
-          <h1 className="text-4xl font-bold mb-4">🎂 Birthday Link Event Details</h1>
+        <div className="max-w-2xl">
+          <h1 className="text-4xl font-bold mb-4">🎂 Birthday Link Event Details 🎉</h1>
           <p className="text-lg text-gray-700 mb-6">
-            Explore this curated birthday experience. See venue details, guest list,
-            and premium options designed to make your celebration unforgettable.
+            View details for this curated birthday celebration. See venue, guest list,
+            premium service options, and RSVP to join the experience.
           </p>
           <Link
             href="/events"
