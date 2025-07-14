@@ -12,7 +12,20 @@ export default function SignupPage() {
     tier: '',
   });
 
-  const tiers = ['Galaxy', 'Elite', 'Cosmic'];
+  const tiers = [
+    {
+      name: 'Galaxy',
+      description: 'Starry rooftop celebrations with birthday twins.',
+    },
+    {
+      name: 'Elite',
+      description: 'VIP luxury experiences in exclusive venues.',
+    },
+    {
+      name: 'Cosmic',
+      description: 'Fun cosmic gatherings crafted for memories.',
+    },
+  ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
@@ -28,8 +41,9 @@ export default function SignupPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-blue-950 via-purple-900 to-blue-900 text-white flex flex-col">
-      <section className="flex-grow flex items-center justify-center text-center p-4 md:p-8">
+    <main className="min-h-screen bg-gradient-to-b from-blue-950 via-purple-900 to-blue-900 text-white flex flex-col relative">
+      <div className="absolute inset-0 bg-[url('/zodiac-bg.svg')] opacity-10 bg-repeat" />
+      <section className="flex-grow flex items-center justify-center text-center p-4 md:p-8 relative z-10">
         <form
           onSubmit={handleSubmit}
           className="max-w-2xl w-full bg-white/10 backdrop-blur-md rounded-lg shadow-xl p-4 md:p-8 border border-purple-300 space-y-4"
@@ -76,17 +90,28 @@ export default function SignupPage() {
             className="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-purple-200 focus:outline-none"
           />
 
-          <select
-            name="tier"
-            value={formData.tier}
-            onChange={handleChange}
-            className="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-purple-200 focus:outline-none"
-          >
-            <option value="">Select Tier</option>
+          <label className="block text-left space-y-1">
+            <span className="text-sm text-purple-200">Choose your membership tier</span>
+            <select
+              name="tier"
+              value={formData.tier}
+              onChange={handleChange}
+              className="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-purple-200 focus:outline-none"
+            >
+              <option value="">Select Tier</option>
+              {tiers.map((tier) => (
+                <option key={tier.name} value={tier.name}>{tier.name}</option>
+              ))}
+            </select>
+          </label>
+
+          <ul className="text-xs text-purple-200 text-left space-y-1">
             {tiers.map((tier) => (
-              <option key={tier} value={tier}>{tier}</option>
+              <li key={tier.name}>
+                <span className="text-birthday-gold font-semibold">{tier.name}</span> - {tier.description}
+              </li>
             ))}
-          </select>
+          </ul>
 
           <button
             type="submit"
