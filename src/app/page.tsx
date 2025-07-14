@@ -1,10 +1,9 @@
-import NavBar from '../components/NavBar';
 import Link from 'next/link';
+import TestimonialSection from '../components/TestimonialSection';
 
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-white text-gray-900 flex flex-col">
-      <NavBar />
 
       <section className="flex-grow flex items-center justify-center text-center p-8">
         <div className="max-w-xl">
@@ -21,10 +20,7 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
-
-      <footer className="text-center text-sm text-gray-500 p-4 bg-gray-50">
-        &copy; {new Date().getFullYear()} Birthday Link. All rights reserved.
-      </footer>
+      <TestimonialSection />
     </main>
   );
 }

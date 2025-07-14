@@ -1,10 +1,8 @@
-import NavBar from '../../components/NavBar';
 import Link from 'next/link';
 
 export default function AdminPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-blue-950 via-purple-900 to-blue-900 text-white flex flex-col">
-      <NavBar />
 
       <section className="flex-grow flex items-center justify-center text-center p-4 md:p-8">
         <div className="max-w-2xl bg-white/10 backdrop-blur-md rounded-lg shadow-xl p-4 md:p-8 border border-purple-300">
@@ -12,8 +10,8 @@ export default function AdminPage() {
             🎂 Birthday Link Admin Panel 🎉
           </h1>
           <p className="text-base md:text-lg text-purple-100 mb-6">
-            Manage events, user signups, site content, and moderation tools. 
-            Birthday Link's Admin Panel empowers you to curate amazing shared birthday experiences.
+            Manage events, user signups, site content, and moderation tools.
+            Birthday Link&apos;s Admin Panel empowers you to curate amazing shared birthday experiences.
           </p>
           <Link
             href="/dashboard"
@@ -24,9 +22,6 @@ export default function AdminPage() {
         </div>
       </section>
 
-      <footer className="text-center text-sm text-purple-200 p-4 bg-purple-950">
-        &copy; {new Date().getFullYear()} Birthday Link. All rights reserved.
-      </footer>
     </main>
   );
 }
