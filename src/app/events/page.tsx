@@ -3,26 +3,26 @@ import Link from 'next/link';
 
 export default function EventsPage() {
   return (
-    <main className="min-h-screen bg-white text-gray-900 flex flex-col">
+    <main className="min-h-screen bg-gradient-to-b from-blue-950 via-purple-900 to-blue-900 text-white flex flex-col">
       <NavBar />
 
       <section className="flex-grow flex items-center justify-center text-center p-8">
-        <div className="max-w-xl">
-          <h1 className="text-4xl font-bold mb-4">🎂 Group Birthday Celebrations</h1>
-          <p className="text-lg text-gray-700 mb-6">
-            Discover curated birthday events that connect you with those who share your day.
-            Celebrate in style, effortlessly, with premium experiences and venues.
+        <div className="max-w-2xl bg-white/10 backdrop-blur-md rounded-lg shadow-xl p-8 border border-purple-300">
+          <h1 className="text-5xl font-extrabold mb-4 text-birthday-gold">🎂 Group Birthday Celebrations</h1>
+          <p className="text-lg text-purple-100 mb-6">
+            Discover curated birthday events that connect you with people who share your day.
+            Celebrate effortlessly, in style, with premium venues and unforgettable experiences.
           </p>
           <Link
             href="/events/create"
-            className="inline-block bg-birthday-gold text-white px-6 py-3 rounded-full shadow hover:bg-yellow-500 transition duration-300"
+            className="inline-block bg-birthday-gold text-purple-900 font-bold px-6 py-3 rounded-full shadow hover:bg-yellow-400 transition"
           >
             Create Your Event
           </Link>
         </div>
       </section>
 
-      <footer className="text-center text-sm text-gray-500 p-4 bg-gray-50">
+      <footer className="text-center text-sm text-purple-200 p-4 bg-purple-950">
         &copy; {new Date().getFullYear()} Birthday Link. All rights reserved.
       </footer>
     </main>
