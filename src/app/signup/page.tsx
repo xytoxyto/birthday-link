@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -22,10 +21,17 @@ export default function SignupPage() {
     });
   };
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Form Data:', formData);
+    alert('Thanks for signing up! 🎉');
+    // In production, send data to your backend here.
+  };
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-blue-950 via-purple-900 to-blue-900 text-white flex flex-col">
       <section className="flex-grow flex items-center justify-center text-center p-4 md:p-8">
-        <form className="max-w-2xl w-full bg-white/10 backdrop-blur-md rounded-lg shadow-xl p-4 md:p-8 border border-purple-300 space-y-4">
+        <form onSubmit={handleSubmit} className="max-w-2xl w-full bg-white/10 backdrop-blur-md rounded-lg shadow-xl p-4 md:p-8 border border-purple-300 space-y-4">
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-birthday-gold">
             🎂 Join Birthday Link
           </h1>
