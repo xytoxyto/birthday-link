@@ -21,10 +21,19 @@ export default function SignupPage() {
     });
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    // Here you can call your signup API or redirect to Dashboard
+  };
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-blue-950 via-purple-900 to-blue-900 text-white flex flex-col">
       <section className="flex-grow flex items-center justify-center text-center p-4 md:p-8">
-        <form className="max-w-2xl w-full bg-white/10 backdrop-blur-md rounded-lg shadow-xl p-4 md:p-8 border border-purple-300 space-y-4">
+        <form
+          onSubmit={handleSubmit}
+          className="max-w-2xl w-full bg-white/10 backdrop-blur-md rounded-lg shadow-xl p-4 md:p-8 border border-purple-300 space-y-4"
+        >
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-birthday-gold">
             🎂 Join Birthday Link
           </h1>
@@ -38,7 +47,7 @@ export default function SignupPage() {
             value={formData.name}
             onChange={handleChange}
             placeholder="Full Name"
-            className="w-full px-4 py-2 rounded-lg border border-purple-400 bg-white/20 text-white placeholder-purple-200 focus:outline-none focus:ring-2 focus:ring-birthday-gold transition duration-300"
+            className="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-purple-200 focus:outline-none"
           />
 
           <input
@@ -47,7 +56,7 @@ export default function SignupPage() {
             value={formData.email}
             onChange={handleChange}
             placeholder="Email"
-            className="w-full px-4 py-2 rounded-lg border border-purple-400 bg-white/20 text-white placeholder-purple-200 focus:outline-none focus:ring-2 focus:ring-birthday-gold transition duration-300"
+            className="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-purple-200 focus:outline-none"
           />
 
           <input
@@ -56,7 +65,7 @@ export default function SignupPage() {
             value={formData.password}
             onChange={handleChange}
             placeholder="Password"
-            className="w-full px-4 py-2 rounded-lg border border-purple-400 bg-white/20 text-white placeholder-purple-200 focus:outline-none focus:ring-2 focus:ring-birthday-gold transition duration-300"
+            className="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-purple-200 focus:outline-none"
           />
 
           <input
@@ -64,14 +73,14 @@ export default function SignupPage() {
             type="date"
             value={formData.birthday}
             onChange={handleChange}
-            className="w-full px-4 py-2 rounded-lg border border-purple-400 bg-white/20 text-white placeholder-purple-200 focus:outline-none focus:ring-2 focus:ring-birthday-gold transition duration-300"
+            className="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-purple-200 focus:outline-none"
           />
 
           <select
             name="tier"
             value={formData.tier}
             onChange={handleChange}
-            className="w-full px-4 py-2 rounded-lg border border-purple-400 bg-white/20 text-white placeholder-purple-200 focus:outline-none focus:ring-2 focus:ring-birthday-gold transition duration-300"
+            className="w-full px-4 py-2 rounded-lg bg-white/20 text-white placeholder-purple-200 focus:outline-none"
           >
             <option value="">Select Tier</option>
             {tiers.map((tier) => (
@@ -81,7 +90,7 @@ export default function SignupPage() {
 
           <button
             type="submit"
-            className="w-full bg-birthday-gold text-purple-900 font-bold px-6 py-3 rounded-full shadow-lg hover:bg-yellow-400 transition-transform transform hover:scale-105 duration-300"
+            className="bg-birthday-gold text-purple-900 font-bold px-6 py-3 rounded-full shadow hover:bg-yellow-400 transition"
           >
             Join Birthday Link
           </button>
