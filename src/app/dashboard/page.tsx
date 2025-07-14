@@ -38,49 +38,49 @@ export default function DashboardPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-blue-950 via-purple-900 to-blue-900 text-white flex flex-col">
       <section className="flex-grow flex items-center justify-center text-center p-4 md:p-8">
-        <div className="max-w-3xl w-full bg-white/10 backdrop-blur-md rounded-lg shadow-xl p-4 md:p-8 border border-purple-300 space-y-6">
-          <div>
-            <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-birthday-gold">
-              🎂 Your Birthday Link Dashboard 🎉
-            </h1>
-            <p className="text-base md:text-lg text-purple-100">
-              View your matched birthday celebrations, upcoming events, and manage your RSVPs.
-              Birthday Link ensures you never celebrate alone with curated, premium experiences.
-            </p>
+        <div className="max-w-4xl w-full space-y-6">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-birthday-gold mb-2">
+            🎂 Your Birthday Link Dashboard
+          </h1>
+          <p className="text-base md:text-lg text-purple-100 max-w-3xl mx-auto">
+            See your upcoming events, manage your birthday crew, and enjoy your Galaxy, Elite, or Cosmic perks.
+          </p>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {events.map((event) => (
+              <div
+                key={event.id}
+                className="flex flex-col justify-between bg-white/10 border border-purple-300 rounded-lg p-4 backdrop-blur-md shadow-md"
+              >
+                <div>
+                  <h2 className="text-lg font-semibold text-white">{event.name}</h2>
+                  <p className="text-sm text-purple-200">
+                    {new Date(event.date).toLocaleDateString('en-US', {
+                      month: 'long',
+                      day: 'numeric',
+                      year: 'numeric',
+                    })}
+                  </p>
+                </div>
+                <div className="mt-4 flex items-center justify-between">
+                  <span className={`text-xs font-semibold px-2 py-1 rounded-full ${tierClasses[event.tier]}`}>{event.tier}</span>
+                  <button
+                    type="button"
+                    className="bg-birthday-gold text-purple-900 font-bold px-3 py-1 rounded-full shadow hover:bg-yellow-400 transition text-xs"
+                  >
+                    RSVP
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
 
-          <ul className="space-y-4 text-left">
-            {events.map((event) => (
-              <li key={event.id} className="bg-white/10 rounded-lg p-4 border border-purple-300 shadow-md">
-                <div className="flex items-center justify-between">
-                  <h2 className="text-lg font-semibold text-white">{event.name}</h2>
-                  <span className={`text-xs font-semibold px-2 py-1 rounded-full ${tierClasses[event.tier]}`}>
-                    {event.tier}
-                  </span>
-                </div>
-                <p className="text-sm text-purple-200 mt-1">
-                  {new Date(event.date).toLocaleDateString('en-US', {
-                    month: 'long',
-                    day: 'numeric',
-                    year: 'numeric',
-                  })}
-                </p>
-                <button
-                  type="button"
-                  className="mt-3 bg-birthday-gold text-purple-900 font-bold px-4 py-2 rounded-full shadow hover:bg-yellow-400 transition text-sm"
-                >
-                  RSVP
-                </button>
-              </li>
-            ))}
-          </ul>
-
-          <div className="text-center">
+          <div className="pt-4">
             <Link
               href="/events"
-              className="inline-block bg-birthday-gold text-purple-900 font-bold px-4 py-2 md:px-6 md:py-3 rounded-full shadow hover:bg-yellow-400 transition text-sm md:text-base"
+              className="inline-block bg-birthday-gold text-purple-900 font-bold px-6 py-3 rounded-full shadow hover:bg-yellow-400 transition"
             >
-              View All Events
+              View Events
             </Link>
           </div>
         </div>
