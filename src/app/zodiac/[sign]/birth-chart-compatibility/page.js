@@ -1,7 +1,9 @@
 'use client'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useParams } from 'next/navigation';
 
 export default function BirthChartCompatibility() {
+  const params = useParams();
   const getSignAttribute = (sign) => {
     const attributes = {
       'Aries': 'leadership',
@@ -17,13 +19,13 @@ export default function BirthChartCompatibility() {
       'Aquarius': 'innovation',
       'Pisces': 'imagination'
     };
-    return attributes[sign] || 'unique energy';
-  };
   const [people, setPeople] = useState([
-    { id: 1, name: 'You', sign: 'Aries' },
+    { id: 1, name: 'You', sign: params.sign || 'Aries' },
     { id: 2, name: 'Alex', sign: 'Leo' },
     { id: 3, name: 'Jordan', sign: 'Gemini' }
   ]);
+    { id: 3, name: 'Jordan', sign: 'Gemini' }
+  const [newSign, setNewSign] = useState(params.sign || 'Aries');
   const [newName, setNewName] = useState('');
   const [newSign, setNewSign] = useState('Aries');
   const [readingGenerated, setReadingGenerated] = useState(false);
