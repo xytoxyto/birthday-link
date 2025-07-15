@@ -15,13 +15,10 @@ export default function LoginPage() {
     try {
       console.log('Login attempt with:', email, password);
       // Actual authentication logic would go here
-      <div className="bg-blue-800 p-8 rounded-xl shadow-xl max-w-md w-full">
-        <h1 className="text-2xl text-white font-bold mb-2">Login</h1>
-        <p className="text-white mb-4">Log in to access your Birthday Link account</p>
-        
-        {error && <div className="bg-red-500 text-white p-3 rounded-lg mb-4">{error}</div>}
-        
-        <form onSubmit={handleSubmit} className="space-y-4">
+    } catch (err) {
+      setError('Login failed. Please try again.');
+    }
+  };
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-blue-900 p-4">
