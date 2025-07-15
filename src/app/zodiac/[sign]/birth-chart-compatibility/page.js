@@ -7,9 +7,19 @@ export default function BirthChartCompatibility() {
     { id: 2, name: 'Alex', sign: 'Leo' },
     { id: 3, name: 'Jordan', sign: 'Gemini' }
   ]);
+  const [newName, setNewName] = useState('');
+  const [newSign, setNewSign] = useState('Aries');
 
   const removePerson = (id) => {
     setPeople(people.filter(person => person.id !== id));
+  };
+
+  const addPerson = () => {
+    if (newName.trim()) {
+      const newId = Math.max(0, ...people.map(p => p.id)) + 1;
+      setPeople([...people, { id: newId, name: newName, sign: newSign }]);
+      setNewName('');
+    }
   };
 
   return (
@@ -29,13 +39,41 @@ export default function BirthChartCompatibility() {
             >
               ✕
             </button>
-          </div>
-        ))}
+        <button className="w-full bg-yellow-400 text-blue-900 font-semibold px-4 py-2 rounded-full shadow hover:bg-yellow-300 transition">
+          Generate Full Group Reading
+        </button>
       </div>
       
-      <div className="bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-lg p-3">
-        <h5 className="font-bold text-white">92% Celebration Compatibility</h5>
-        <p className="text-sm text-white/80">
+      <div className="mt-4 bg-white/10 p-3 rounded-lg">
+        <h5 className="font-bold text-white mb-2">Add Person</h5>
+        <div className="flex gap-2">
+          <input
+            type="text"
+            value={newName}
+            onChange={(e) => setNewName(e.target.value)}
+            placeholder="Name"
+            className="flex-1 bg-white/20 rounded px-3 py-1 text-white placeholder:text-white/50"
+          />
+          <select
+            value={newSign}
+            onChange={(e) => setNewSign(e.target.value)}
+            className="bg-white/20 rounded px-3 py-1 text-white"
+          >
+            {['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'].map(sign => (
+              <option key={sign} value={sign}>{sign}</option>
+            ))}
+          </select>
+          <button
+            onClick={addPerson}
+            className="bg-white/20 hover:bg-white/30 rounded px-4 py-1 text-white"
+          >
+            Add
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}       <p className="text-sm text-white/80">
           Your group has excellent celebration energy! With Aries leadership, Leo&apos;s flair for drama, 
           and Gemini&apos;s social skills, your joint birthday will be unforgettable.
         </p>
