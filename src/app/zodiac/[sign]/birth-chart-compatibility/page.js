@@ -26,6 +26,12 @@ export default function BirthChartCompatibility() {
   ]);
   const [newName, setNewName] = useState('');
   const [newSign, setNewSign] = useState('Aries');
+  const [readingGenerated, setReadingGenerated] = useState(false);
+  
+  const generateReading = () => {
+    setReadingGenerated(true);
+    // Additional logic for generating the reading can be added here
+  };
 
   const removePerson = (id) => {
     setPeople(people.filter(person => person.id !== id));
@@ -50,9 +56,12 @@ export default function BirthChartCompatibility() {
           Your group has excellent celebration energy! 
           {people.map((person, index) => (
             <span key={person.id}>
-              {index === 0 ? ' With ' : index === people.length - 1 ? ' and ' : ', '}
-              {person.sign}&apos;s {getSignAttribute(person.sign)}
-            </span>
+        <button 
+          onClick={generateReading} 
+          className="w-full bg-yellow-400 text-blue-900 font-semibold px-4 py-2 rounded-full shadow hover:bg-yellow-300 transition"
+        >
+          {readingGenerated ? "Reading Generated!" : "Generate Full Group Reading"}
+        </button>
           ))}
           , your joint birthday will be unforgettable.
         </p>
