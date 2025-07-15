@@ -1,5 +1,7 @@
 "use client";
 
+import PropTypes from 'prop-types';
+
 export default function CoCelebrationIdeas({ currentSign = {} }) {
   const handlePlanningClick = (planType) => {
     console.log(`Planning started for: ${planType}`);
@@ -61,7 +63,14 @@ export default function CoCelebrationIdeas({ currentSign = {} }) {
             Start planning →
           </button>
         </div>
-      </div>
-    </div>
+  );
+}
+
+CoCelebrationIdeas.propTypes = {
+  currentSign: PropTypes.shape({
+    name: PropTypes.string,
+    element: PropTypes.string
+  })
+};   </div>
   );
 }
