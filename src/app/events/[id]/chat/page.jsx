@@ -44,7 +44,6 @@ export default function EventChatPage() {
   const [sortOption, setSortOption] = useState('default');
   const [showCompareModal, setShowCompareModal] = useState(false);
   const [showMapView, setShowMapView] = useState(false);
-  const [audioURL, setAudioURL] = useState(null);
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
 
@@ -119,7 +118,7 @@ export default function EventChatPage() {
         setAudioURL(audioUrl); // Corrected line
         
         // In a real app, you'd upload this and send a link
-        setMessages([
+        // In a real app, you'd upload this and send a link
         setMessages([
           ...messages,
           {
@@ -131,7 +130,6 @@ export default function EventChatPage() {
           }
         ]);
       };
-      
       mediaRecorder.start();
       setIsRecording(true);
     } catch (err) {
@@ -561,7 +559,6 @@ function VenueCard({ image, name, description, tier, availability, tags, index, 
 
   return (
     <motion.div className="relative">
-      {/* Add badges */}
       {isFeatured && (
         <div className="absolute top-2 left-2 z-10 bg-green-500 text-white rounded-full px-3 py-1 text-sm font-bold shadow-lg">
           Featured
@@ -632,19 +629,64 @@ function VenueCard({ image, name, description, tier, availability, tags, index, 
   );
 }
 
-// Update venue data to include these properties
-const venues = [
+// Add TierBadge component
+function TierBadge({ tier, className }) {
+  const colors = {
+    'Basic': 'bg-gray-400',
+    'Premium': 'bg-blue-500',
+    'Galaxy': 'bg-purple-600'
+  };
+  
+  return (
+    <span className={`${colors[tier] || 'bg-gray-400'} text-white text-xs rounded-full px-2 py-1 ${className}`}>
+      {tier}
+    </span>
+  );
+}
+
+// Define missing variables
+const filteredVenues = [
   {
     id: 1,
-    // existing properties
+    name: "Party Hall A",
+    description: "A beautiful venue for parties",
+    image: "https://picsum.photos/200",
+    tier: "Premium",
+    category: "Indoor",
+    capacity: 100,
+    availability: [
+      { day: "Sat", available: true },
+      { day: "Sun", available: false }
+    ],
     isFeatured: true,
     isPopular: false
   },
   {
     id: 2,
-    // existing properties
+    name: "Garden Venue",
+    description: "Beautiful outdoor space",
+    image: "https://picsum.photos/201",
+    tier: "Galaxy",
+    category: "Outdoor",
+    capacity: 150,
+    availability: [
+      { day: "Sat", available: false },
+      { day: "Sun", available: true }
+    ],
     isFeatured: false,
     isPopular: true
-  },
-  // etc.
+  }
 ];
+
+const usersTyping = ["John", "Alice"];
+const compareList = [1];
+
+const setAudioURL = (url) => {
+  // This would be implemented in a real app
+  console.log("Audio URL set to:", url);
+};
+
+const toggleCompare = (id) => {
+  // This would be implemented in a real app
+  console.log("Toggle compare for venue:", id);
+};
