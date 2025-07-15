@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Link from 'next/link';
 import DashboardHeader from '@/components/DashboardHeader';
 import DashboardTabs from '@/components/DashboardTabs';
 import DashboardEvents from '@/components/DashboardEvents';
@@ -25,5 +26,14 @@ export default function DashboardPage() {
         {activeTab === 'settings' && <DashboardSettings user={user} onUpdate={typeof setUser === 'function' ? setUser : undefined} />}
       </div>
     </main>
+  );
+}
+
+export function HomePage() {
+  return (
+    <div>
+      <h1>Home Page</h1>
+      <Link href="/login">Login</Link>
+    </div>
   );
 }
