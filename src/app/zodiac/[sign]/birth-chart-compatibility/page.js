@@ -54,19 +54,16 @@ export default function BirthChartCompatibility() {
       <div className="mt-3">
         <p className="text-sm text-white/80">
           Your group has excellent celebration energy! 
-          {people.map((person, index) => (
-            <span key={person.id}>
-        <button 
-          onClick={generateReading} 
-          className="w-full bg-yellow-400 text-blue-900 font-semibold px-4 py-2 rounded-full shadow hover:bg-yellow-300 transition"
-        >
-          {readingGenerated ? "Reading Generated!" : "Generate Full Group Reading"}
-        </button>
+          {people.map((person) => (
+            <span key={person.id}>{person.name}'s {getSignAttribute(person.sign)}</span>
           ))}
           , your joint birthday will be unforgettable.
         </p>
-        <button className="w-full bg-yellow-400 text-blue-900 font-semibold px-4 py-2 rounded-full shadow hover:bg-yellow-300 transition">
-          Generate Full Group Reading
+        <button 
+          onClick={generateReading} 
+          className="w-full bg-yellow-400 text-blue-900 font-semibold px-4 py-2 rounded-full shadow hover:bg-yellow-300 transition mt-2"
+        >
+          {readingGenerated ? "Reading Generated!" : "Generate Full Group Reading"}
         </button>
       </div>
       
