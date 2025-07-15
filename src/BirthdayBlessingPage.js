@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 function BirthdayBlessingPage() {
   // Example state hooks for dynamic data
-  const [recipient, setRecipient] = useState({
+  const [recipient] = useState({
     name: "Antonio",
     age: 33,
     photo: "", // Will be set by AI or fallback
