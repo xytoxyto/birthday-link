@@ -1,0 +1,27 @@
+// src/app/events/[id]/page.jsx
+'use client';
+
+import { useParams } from 'next/navigation';
+import Link from 'next/link';
+
+function Navbar() {
+  return (
+    <nav>
+      <Link href="/events">Events</Link>
+    </nav>
+  );
+}
+
+export default function EventPage() {
+  const { id } = useParams();
+
+  return (
+    <div className="container mx-auto py-8">
+      <Navbar />
+      <h1 className="text-3xl font-bold mb-4">Event Details</h1>
+      <p className="text-gray-300">
+        Details for event with ID: {id}
+      </p>
+    </div>
+  );
+}
