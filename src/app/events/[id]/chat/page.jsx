@@ -40,6 +40,8 @@ export default function EventChatPage() {
   const [audioURL, setAudioURL] = useState('');
   const [showConfetti, setShowConfetti] = useState(false);
   const [usersTyping, setUsersTyping] = useState([]);
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [showDatePicker, setShowDatePicker] = useState(false);
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
 
@@ -288,6 +290,43 @@ export default function EventChatPage() {
           onConfettiComplete={() => setShowConfetti(false)}
         />
       )}
+      {/* Date picker section */}
+      <div className="pt-4">
+        <button 
+          onClick={() => setShowDatePicker(!showDatePicker)}
+          className="w-full bg-white/10 text-white font-semibold px-4 py-3 rounded-lg mb-4 flex justify-between items-center"
+        >
+          <span>{selectedDate || 'Select a date'}</span>
+          <span>{showDatePicker ? '▲' : '▼'}</span>
+        </button>
+        
+        {showDatePicker && (
+          <div className="bg-white/5 rounded-lg p-4 mb-4">
+            <h4 className="text-white font-semibold mb-2">Available Dates:</h4>
+            <div className="grid grid-cols-7 gap-2">
+              {['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((day, i) => (
+                <div key={`header-${i}`} className="text-center text-white/70 text-sm">
+                  {day}
+                </div>
+              ))}
+              {Array.from({ length: 28 }, (_, i) => (
+                <button
+                  key={`day-${i+1}`}
+                  onClick={() => {
+                    setSelectedDate(`July ${i+1}, 2025`);
+                    setShowDatePicker(false);
+                  }}
+                  className={`h-10 rounded-full flex items-center justify-center
+                    ${i % 3 === 0 ? 'bg-red-500/20 text-red-300 cursor-not-allowed' : 'bg-green-500/20 text-green-300 hover:bg-green-500/40'}`}
+                  disabled={i % 3 === 0}
+                >
+                  {i+1}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
     </>
   );
 }
