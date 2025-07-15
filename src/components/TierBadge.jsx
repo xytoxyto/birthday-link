@@ -17,4 +17,4 @@ export default function TierBadge({ tier }) {
       {tier}
     </span>
   );
-}import TierBadge from '@/components/TierBadge';
+}
