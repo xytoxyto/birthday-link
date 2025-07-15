@@ -1,25 +1,35 @@
 'use client'
+import { useState } from 'react';
 
 export default function BirthChartCompatibility() {
+  const [people, setPeople] = useState([
+    { id: 1, name: 'You', sign: 'Aries' },
+    { id: 2, name: 'Alex', sign: 'Leo' },
+    { id: 3, name: 'Jordan', sign: 'Gemini' }
+  ]);
+
+  const removePerson = (id) => {
+    setPeople(people.filter(person => person.id !== id));
+  };
+
   return (
     <div className="mt-6 p-4 bg-white/20 rounded-lg">
       <div className="flex justify-between items-center mb-2">
         <h3 className="text-xl font-semibold text-white">Group Celebration Compatibility</h3>
         <span className="bg-yellow-400 text-blue-900 text-xs rounded-full px-2 py-1">Premium</span>
-      </div>
-      <p className="text-white/80 mb-4">
-        Planning a joint celebration? See how your birth charts align for the perfect shared birthday experience.
-      </p>
-      
-      <div className="bg-black/30 rounded-lg p-4 mb-4">
-        <div className="flex justify-between items-center mb-2">
-          <h4 className="font-bold text-white">Your Birthday Group</h4>
-          <button className="text-sm text-yellow-400">+ Add Person</button>
-        </div>
-        
         <div className="flex flex-wrap gap-2 mb-3">
-          <div className="bg-white/10 rounded-full px-3 py-1 text-sm flex items-center">
-            <span>You (Aries)</span>
+          {people.map(person => (
+            <div key={person.id} className="bg-white/10 rounded-full px-3 py-1 text-sm flex items-center">
+              <span>{person.name} ({person.sign})</span>
+              <button 
+                onClick={() => removePerson(person.id)} 
+                className="ml-2 text-white/50 hover:text-white/80"
+              >
+                ✕
+              </button>
+            </div>
+          ))}
+        </div>
             <button className="ml-2 text-white/50 hover:text-white/80">✕</button>
           </div>
           <div className="bg-white/10 rounded-full px-3 py-1 text-sm flex items-center">
