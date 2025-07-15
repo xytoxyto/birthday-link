@@ -1,25 +1,4 @@
-<<<<<<< HEAD
 "use client";
-=======
-// Hero Section
-export function HeroSection() {
-  return (
-    <section className="bg-gradient-to-b from-blue-900 to-blue-600 text-white py-16 px-4 text-center">
-      <h1 className="text-4xl font-bold mb-4">Never Celebrate Alone Again</h1>
-      <p className="text-lg max-w-md mx-auto mb-6">
-        Turn your birthday into a shared experience with people who match your date. Choose your tier. Celebrate in style.
-      </p>
-      <Link
-        href="/signup"
-        className="inline-block bg-yellow-400 text-blue-900 font-semibold px-6 py-3 rounded-full shadow hover:bg-yellow-300 transition-colors"
-      >
-        Join & Match
-      </Link>
-    </section>
-  );
-}
-'use client';
->>>>>>> df3e1fd (Add HeroSection component to enhance user engagement with a call-to-action)
 
 import { useState } from "react";
 import Link from "next/link";
@@ -124,32 +103,5 @@ export default function NavBar() {
         </ul>
       </div>
     </header>
-  );
-}
-
-// Footer
-export function Footer() {
-  return (
-    <footer className="bg-blue-900 text-white py-6">
-      <div className="max-w-2xl mx-auto text-center space-y-4">
-        <p className="text-sm">
-          © 2025 Birthday Link. All rights reserved.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4 text-sm">
-          <Link href="/contact" className="no-underline hover:text-blue-300">
-            Contact
-          </Link>
-          <Link href="/instagram" className="no-underline hover:text-blue-300">
-            Instagram
-          </Link>
-          <Link href="/facebook" className="no-underline hover:text-blue-300">
-            Facebook
-          </Link>
-          <Link href="/legal" className="no-underline hover:text-blue-300">
-            Terms & Privacy
-          </Link>
-        </div>
-      </div>
-    </footer>
   );
 }
