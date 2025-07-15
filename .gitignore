@@ -1,41 +1,58 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
-
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
+# General OS generated files
 .DS_Store
-*.pem
+Thumbs.db
 
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
+# Node.js and Package Managers
+/node_modules
+/package-lock.json       # (Optional, but recommended) Lockfile for npm - tracks exact versions
+/yarn.lock               # (Optional, but recommended) Lockfile for Yarn - tracks exact versions
+/yarn-error.log         # Yarn error logs
+/npm-debug.log          # npm debug logs
+.pnpm-debug.log*        # pnpm debug logs
+.pnp.*                  # Yarn Plug'n'Play files
+.pnp                    # Yarn Plug'n'Play files
 
-# env files (can opt-in for committing if needed)
-.env*
+# Next.js Specific
+/.next/                  # Next.js build output
+/out/                     # (If using /out directory) Static export output
+next-env.d.ts           # Next.js environment declaration
 
-# vercel
-.vercel
+# Vercel (or other deployment platforms)
+/.vercel/                # Vercel deployment files
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# Testing
+/coverage/               # Coverage reports
+
+# Environment Configuration
+.env                    # Main environment variables - NEVER commit this!
+.env.local              # Local overrides - NEVER commit this!
+.env.development        # Development-specific - NEVER commit this!
+.env.production         # Production-specific - NEVER commit this!
+.env.*.local            # Local environment overrides - NEVER commit these!
+
+# Editor and IDE
+.idea/                  # JetBrains IDE configuration
+.vscode/                # VS Code configuration
+*.swp                    # Swap files from Vim
+*~                       # Backup files from various editors
+
+# Build artifacts
+/build/                   # Generic build directory
+/dist/                    # Generic distribution directory
+
+# Logs
+*.log                    # Generic log files
+
+# Temporary files
+/tmp/                     # Temporary directory
+/temp/                    # Temporary directory
+
+# Security-related (if applicable)
+*.key                    # Private keys - NEVER commit these!
+*.cert                   # Certificates - NEVER commit private ones!
+
+# Optional: If you have specific files that should *never* be committed, add them here
+# Example: api_keys.js (containing API keys)
+api_keys.js
