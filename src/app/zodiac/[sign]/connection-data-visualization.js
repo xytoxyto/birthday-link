@@ -1,12 +1,13 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useParams } from 'next/navigation';
 
 export default function BirthdayConnectionMap() {
   const [userData, setUserData] = useState(null);
   const params = useParams();
   const [currentSign, setCurrentSign] = useState({ name: "Aries" });
+  const initialRenderRef = useRef(true);
   
   // Update currentSign when params.sign changes
   useEffect(() => {
@@ -35,10 +36,13 @@ export default function BirthdayConnectionMap() {
     });
     setUserData(data);
   }, [currentSign]); // Add currentSign as a dependency since we're using it in the function
-
   // Fetch data on component mount
   useEffect(() => {
-    fetchUserData();
+    if (initialRenderRef.current || currentSign.name !== userData?.sign) {
+      initialRenderRef.current = false;
+      fetchUserData();
+    }
+  }, [currentSign, fetchUserData, userData?.sign]);
   }, [fetchUserData]); // Include fetchUserData as a dependency since it's used in the effect
 
   if (!userData) {
