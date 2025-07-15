@@ -27,7 +27,7 @@ export default function NavBar() {
     "whitespace-nowrap hover:underline hover:decoration-[#FFD700] hover:text-[#FFD700]";
 
   return (
-    <header className="relative z-50 bg-gradient-to-r from-[#0a0a5b] to-[#4b0082] text-white">
+    <header className="relative z-50 bg-gradient-to-r from-[#0a0a5b] to-[#1e90ff] text-white">
       <div className="max-w-7xl mx-auto flex items-center justify-between py-3 px-4">
         <Link href="/" className="text-lg md:text-xl font-bold">
           🎂 Birthday Link
