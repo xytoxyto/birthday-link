@@ -7,6 +7,3 @@ module.exports = {
 }
 
 // Importing tailwindcss styles
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
