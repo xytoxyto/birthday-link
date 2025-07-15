@@ -42,6 +42,7 @@ export default function EventChatPage() {
   const [usersTyping, setUsersTyping] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
   const [showDatePicker, setShowDatePicker] = useState(false);
+  const [sortOption, setSortOption] = useState('default');
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
 
@@ -151,6 +152,23 @@ export default function EventChatPage() {
         isOwnMessage: true
       }
     ]);
+  };
+
+  const getSortedVenues = () => {
+    const filtered = [...filteredVenues]; // Create a copy
+    
+    switch(sortOption) {
+      case 'name-asc':
+        return filtered.sort((a, b) => a.name.localeCompare(b.name));
+      case 'name-desc':
+        return filtered.sort((a, b) => b.name.localeCompare(a.name));
+      case 'capacity-asc':
+        return filtered.sort((a, b) => a.capacity - b.capacity);
+      case 'capacity-desc':
+        return filtered.sort((a, b) => b.capacity - a.capacity);
+      default:
+        return filtered; // Default sort (id or featured)
+    }
   };
 
   return (
@@ -327,6 +345,35 @@ export default function EventChatPage() {
           </div>
         )}
       </div>
+      {/* Sorting UI */}
+      <div className="flex justify-end mb-4">
+        <select
+          value={sortOption}
+          onChange={(e) => setSortOption(e.target.value)}
+          className="px-4 py-2 rounded-full bg-white/10 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400 transition"
+        >
+          <option value="default">Featured</option>
+          <option value="name-asc">Name (A-Z)</option>
+          <option value="name-desc">Name (Z-A)</option>
+          <option value="capacity-asc">Capacity (Low to High)</option>
+          <option value="capacity-desc">Capacity (High to Low)</option>
+        </select>
+      </div>
+      {/* Venue mapping - assuming filteredVenues is available in this scope */}
+      {getSortedVenues().map((venue, index) => (
+        <VenueCard
+          key={venue.id}
+          image={venue.image}
+          name={venue.name}
+          description={venue.description}
+          tier={venue.tier}
+          availability={venue.availability}
+          tags={venue.tags}
+          index={index}
+          onToggleCompare={() => handleToggleCompare(venue.id)}
+          isSelected={selectedVenues.includes(venue.id)}
+        />
+      ))}
     </>
   );
 }
