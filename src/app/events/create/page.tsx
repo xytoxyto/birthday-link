@@ -9,17 +9,19 @@ export default function EventsCreatePage() {
     location: '',
     description: ''
   });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Here you would handle the form submission, e.g., API call
     console.log('Form submitted:', formData);
-    // Redirect or show success message
+    // Show success message
+    setIsSubmitted(true);
+    setTimeout(() => setIsSubmitted(false), 3000);
   };
 
   return (
@@ -31,8 +33,13 @@ export default function EventsCreatePage() {
           </h1>
           <p className="text-base md:text-lg text-purple-100 mb-6 text-center">
             Plan your unforgettable group birthday celebration. Choose your venue, customize the experience,
-            and invite friends who share your special day. Birthday Link makes it seamless.
           </p>
+          
+          {isSubmitted && (
+            <div className="mb-4 p-3 bg-green-500/80 text-white rounded-lg text-center">
+              Event created successfully!
+            </div>
+          )}
           
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
