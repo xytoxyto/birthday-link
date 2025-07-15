@@ -18,6 +18,7 @@ export default function GalaxyRooftopEventPage() {
     location: "Galaxy Rooftop Lounge, Downtown",
     description: "Join us for an unforgettable night at the Galaxy Rooftop with stunning views, amazing music, and great company.",
     imageUrl: "/images/galaxy-rooftop.jpg",
+    imageDimensions: { width: 1200, height: 630 },
     ticketPrice: "$50",
     capacity: 200
   };
