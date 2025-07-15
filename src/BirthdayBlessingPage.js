@@ -21,8 +21,10 @@ function BirthdayBlessingPage() {
     { message: "Happy Birthday Antonio! 🎉", amount: 25, from: "Jane" },
     { message: "Enjoy the DJ Upgrade!", amount: 100, from: "John" },
   ]);
-  const [tierPerks, setTierPerks] = useState("Elite and Cosmic contributors get VIP thank-you videos and shoutouts at the event!");
-
+  const [tierPerks] = useState("Elite and Cosmic contributors get VIP thank-you videos and shoutouts at the event!");
+// Display tier perks in the UI (see Tier Perks Section below)
+// The tierPerks state is used in the Tier Perks Section to show perks info:
+// <p>{tierPerks}</p>
   // Example: Fetch AI-generated photo (replace with your API logic)
   useEffect(() => {
     async function fetchAiPhoto() {
