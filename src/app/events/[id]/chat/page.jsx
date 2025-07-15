@@ -3,6 +3,7 @@
 import { useParams } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
 import BirthdayChat from '@/components/BirthdayChat';
+import { motion } from 'framer-motion';
 
 // First install the missing dependencies:
 // npm install react-confetti react-use
@@ -417,6 +418,8 @@ export default function EventChatPage() {
                 tags={venue.tags}
                 onToggleCompare={() => toggleCompare(venue.id)}
                 isSelected={compareList.includes(venue.id)}
+                isFeatured={venue.isFeatured}
+                isPopular={venue.isPopular}
               />
             </div>
           ))}
@@ -555,65 +558,93 @@ function ChatMessage({ message, isOwnMessage }) {
 }
 
 // Add to VenueCard component
-function VenueCard({ image, name, description, tier, availability, tags, index, onToggleCompare, isSelected }) {
-  const [showDetails, setShowDetails] = useState(false);
-  const [showVirtualTour, setShowVirtualTour] = useState(false);
-  
+function VenueCard({ image, name, description, tier, availability, tags, index, onToggleCompare, isSelected, isFeatured, isPopular }) {
   return (
-    <div className="bg-white rounded-lg shadow-md p-4 mb-4">
-      <div className="flex">
-        <div className="flex-shrink-0">
-          <img src={image} alt={name} className="w-16 h-16 rounded-full" />
+    <motion.div className="relative">
+      {/* Add badges */}
+      {isFeatured && (
+        <div className="absolute top-2 left-2 z-10 bg-yellow-400 text-blue-900 rounded-full px-3 py-1 text-sm font-bold shadow-lg">
+          Featured
         </div>
-        <div className="ml-4 flex-1">
-          <div className="flex justify-between">
-            <h3 className="text-lg font-bold">{name}</h3>
-            <button 
-              onClick={onToggleCompare}
-              className={`text-xs rounded-full px-3 py-1 ${isSelected ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-900'}`}
-            >
-              {isSelected ? 'Remove from Compare' : 'Compare'}
-            </button>
-          </div>
-          <p className="text-sm text-gray-700 mt-1">{description}</p>
-          <div className="flex justify-between mt-2">
-            <button 
-              onClick={() => setShowVirtualTour(true)}
-              className="text-yellow-400 text-sm underline"
-            >
-              Virtual Tour
-            </button>
-            <button
-              onClick={() => setShowDetails(true)}
-              className="text-yellow-400 text-sm underline"
-            >
-              View Details
-            </button>
-          </div>
+      )}
+      {isPopular && (
+        <div className="absolute top-2 right-2 z-10 bg-red-500 text-white rounded-full px-3 py-1 text-sm font-bold shadow-lg">
+          Popular
         </div>
-      </div>
+      )}
       
-      {/* Modal for virtual tour */}
-      {showVirtualTour && (
-        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
-          <div className="bg-blue-900/90 backdrop-blur-lg rounded-lg max-w-4xl w-full h-[80vh] shadow-2xl">
-            <div className="relative h-full">
-              <iframe 
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-                title="Virtual Tour"
-                className="w-full h-full rounded-lg"
-                allowFullScreen
-              ></iframe>
+      <div className="bg-white rounded-lg shadow-md p-4 mb-4">
+        <div className="flex">
+          <div className="flex-shrink-0">
+            <img src={image} alt={name} className="w-16 h-16 rounded-full" />
+          </div>
+          <div className="ml-4 flex-1">
+            <div className="flex justify-between">
+              <h3 className="text-lg font-bold">{name}</h3>
               <button 
-                onClick={() => setShowVirtualTour(false)}
-                className="absolute top-2 right-2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center"
+                onClick={onToggleCompare}
+                className={`text-xs rounded-full px-3 py-1 ${isSelected ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-900'}`}
               >
-                ✕
+                {isSelected ? 'Remove from Compare' : 'Compare'}
+              </button>
+            </div>
+            <p className="text-sm text-gray-700 mt-1">{description}</p>
+            <div className="flex justify-between mt-2">
+              <button 
+                onClick={() => setShowVirtualTour(true)}
+                className="text-yellow-400 text-sm underline"
+              >
+                Virtual Tour
+              </button>
+              <button
+                onClick={() => setShowDetails(true)}
+                className="text-yellow-400 text-sm underline"
+              >
+                View Details
               </button>
             </div>
           </div>
         </div>
-      )}
-    </div>
+        
+        {/* Modal for virtual tour */}
+        {showVirtualTour && (
+          <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
+            <div className="bg-blue-900/90 backdrop-blur-lg rounded-lg max-w-4xl w-full h-[80vh] shadow-2xl">
+              <div className="relative h-full">
+                <iframe 
+                  src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                  title="Virtual Tour"
+                  className="w-full h-full rounded-lg"
+                  allowFullScreen
+                ></iframe>
+                <button 
+                  onClick={() => setShowVirtualTour(false)}
+                  className="absolute top-2 right-2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </motion.div>
   );
 }
+
+// Update venue data to include these properties
+const venues = [
+  {
+    id: 1,
+    // existing properties
+    isFeatured: true,
+    isPopular: false
+  },
+  {
+    id: 2,
+    // existing properties
+    isFeatured: false,
+    isPopular: true
+  },
+  // etc.
+];
