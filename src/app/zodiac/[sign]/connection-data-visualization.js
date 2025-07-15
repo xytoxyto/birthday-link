@@ -43,7 +43,6 @@ export default function BirthdayConnectionMap() {
       fetchUserData();
     }
   }, [currentSign, fetchUserData, userData?.sign]);
-  }, [fetchUserData]); // Include fetchUserData as a dependency since it's used in the effect
 
   if (!userData) {
     return (
