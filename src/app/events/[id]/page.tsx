@@ -1,12 +1,15 @@
 import Link from 'next/link';
 
-export default function EventDetailPage() {
+export default function EventDetailPage({ params }: { params: { id: string } }) {
+  // Access the event ID from the URL params
+  const { id } = params;
+  
   return (
     <main className="min-h-screen bg-gradient-to-b from-blue-950 via-purple-900 to-blue-900 text-white flex flex-col">
       <section className="flex-grow flex items-center justify-center text-center p-4 md:p-8">
         <div className="max-w-2xl bg-white/10 backdrop-blur-md rounded-lg shadow-xl p-4 md:p-8 border border-purple-300">
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-birthday-gold">
-            🎂 Birthday Link Event Details 🎉
+            🎂 Birthday Link Event: {id} 🎉
           </h1>
           <p className="text-base md:text-lg text-purple-100 mb-6">
             View details for this curated birthday celebration. Check the venue, guest list,
