@@ -43,6 +43,7 @@ export default function EventChatPage() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [sortOption, setSortOption] = useState('default');
+  const [showCompareModal, setShowCompareModal] = useState(false);
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
 
@@ -374,6 +375,70 @@ export default function EventChatPage() {
           isSelected={selectedVenues.includes(venue.id)}
         />
       ))}
+      {/* Compare button */}
+      <div className="fixed bottom-4 right-4">
+        <button 
+          onClick={() => setShowCompareModal(true)}
+          className="bg-yellow-400 text-blue-900 font-semibold px-4 py-2 rounded-full shadow hover:bg-yellow-300 transition"
+        >
+          Compare Venues
+        </button>
+      </div>
+      {/* Comparison modal */}
+      {showCompareModal && compareList.length > 0 && (
+        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 overflow-auto">
+          <div className="bg-blue-900/90 backdrop-blur-lg rounded-lg max-w-6xl w-full max-h-[90vh] overflow-auto shadow-2xl">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-white">Compare Venues</h2>
+                <button 
+                  onClick={() => setShowCompareModal(false)}
+                  className="bg-white/10 text-white rounded-full w-8 h-8 flex items-center justify-center"
+                >
+                  ✕
+                </button>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {compareList.map(id => {
+                  const venue = venues.find(v => v.id === id);
+                  return (
+                    <div key={id} className="bg-white/10 rounded-lg overflow-hidden">
+                      <img src={venue.image} alt={venue.name} className="w-full h-40 object-cover" />
+                      <div className="p-4">
+                        <h3 className="text-xl font-bold text-white">{venue.name}</h3>
+                        <TierBadge tier={venue.tier} className="mt-1" />
+                        
+                        <div className="mt-4 space-y-2 text-sm">
+                          <div className="flex justify-between border-b border-white/10 pb-1">
+                            <span className="text-white/70">Category</span>
+                            <span className="text-white">{venue.category}</span>
+                          </div>
+                          <div className="flex justify-between border-b border-white/10 pb-1">
+                            <span className="text-white/70">Capacity</span>
+                            <span className="text-white">{venue.capacity} guests</span>
+                          </div>
+                          <div className="flex justify-between border-b border-white/10 pb-1">
+                            <span className="text-white/70">Weekend Availability</span>
+                            <span className="text-white">
+                              {venue.availability.filter(d => d.day === 'Sat' || d.day === 'Sun')
+                                .some(d => d.available) ? 'Available' : 'Unavailable'}
+                            </span>
+                          </div>
+                        </div>
+                        
+                        <button className="mt-4 w-full bg-yellow-400 text-blue-900 font-semibold px-4 py-2 rounded-full shadow hover:bg-yellow-300 transition">
+                          Book This Venue
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
