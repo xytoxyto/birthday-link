@@ -19,6 +19,7 @@ function TraditionCard({ country, flag, description }) {
       className="bg-white/10 rounded-lg p-3 hover:bg-white/20 transition cursor-pointer"
       role="button"
       tabIndex={0}
+      aria-pressed={false}
       aria-label={`Birthday tradition in ${country}`}
       onKeyDown={handleKeyDown}
       onClick={handleClick}
