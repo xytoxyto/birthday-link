@@ -105,3 +105,30 @@ export default function NavBar() {
     </header>
   );
 }
+
+// Footer
+export function Footer() {
+  return (
+    <footer className="bg-blue-900 text-white py-6">
+      <div className="max-w-2xl mx-auto text-center space-y-4">
+        <p className="text-sm">
+          © 2025 Birthday Link. All rights reserved.
+        </p>
+        <div className="flex flex-wrap justify-center gap-4 text-sm">
+          <Link href="/contact" className="no-underline hover:text-blue-300">
+            Contact
+          </Link>
+          <Link href="/instagram" className="no-underline hover:text-blue-300">
+            Instagram
+          </Link>
+          <Link href="/facebook" className="no-underline hover:text-blue-300">
+            Facebook
+          </Link>
+          <Link href="/legal" className="no-underline hover:text-blue-300">
+            Terms & Privacy
+          </Link>
+        </div>
+      </div>
+    </footer>
+  );
+}
