@@ -22,7 +22,7 @@ export default function DashboardPage() {
         
         {activeTab === 'events' && <DashboardEvents />}
         {activeTab === 'matches' && <DashboardMatches />}
-        {activeTab === 'settings' && <DashboardSettings user={user} onUpdate={setUser} />}
+        {activeTab === 'settings' && <DashboardSettings user={user} onUpdate={typeof setUser === 'function' ? setUser : undefined} />}
       </div>
     </main>
   );
