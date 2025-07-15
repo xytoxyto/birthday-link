@@ -63,6 +63,8 @@ export default function CoCelebrationIdeas({ currentSign = {} }) {
             Start planning →
           </button>
         </div>
+      </div>
+    </div>
   );
 }
 
@@ -71,6 +73,4 @@ CoCelebrationIdeas.propTypes = {
     name: PropTypes.string,
     element: PropTypes.string
   })
-};   </div>
-  );
-}
+};
