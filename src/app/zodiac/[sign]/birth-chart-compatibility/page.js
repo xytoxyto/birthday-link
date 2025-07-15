@@ -43,6 +43,8 @@ export default function BirthChartCompatibility() {
     <div className="mt-6 p-4 bg-white/20 rounded-lg">
       <div className="flex justify-between items-center mb-2">
         <h3 className="text-xl font-semibold text-white">Group Celebration Compatibility</h3>
+      </div>
+      
       <div className="mt-3">
         <p className="text-sm text-white/80">
           Your group has excellent celebration energy! 
@@ -58,22 +60,19 @@ export default function BirthChartCompatibility() {
           Generate Full Group Reading
         </button>
       </div>
+      
+      <div className="mb-4">
+        {people.map(person => (
+          <div key={person.id} className="flex items-center bg-white/10 p-2 rounded-lg mb-2">
+            <span className="text-white">{person.name} - {person.sign}</span>
+            <button 
+              onClick={() => removePerson(person.id)}
               className="ml-2 text-white/50 hover:text-white/80"
             >
               ✕
             </button>
           </div>
         ))}
-      </div>
-      
-      <div className="mt-3">
-        <p className="text-sm text-white/80">
-          Your group has excellent celebration energy! With Aries leadership, Leo&apos;s flair for drama, 
-          and Gemini&apos;s social skills, your joint birthday will be unforgettable.
-        </p>
-        <button className="w-full bg-yellow-400 text-blue-900 font-semibold px-4 py-2 rounded-full shadow hover:bg-yellow-300 transition">
-          Generate Full Group Reading
-        </button>
       </div>
       
       <div className="mt-4 bg-white/10 p-3 rounded-lg">
