@@ -47,23 +47,22 @@ export default function BirthdayPlanningSection({ currentSign }) {
           </button>
         </div>
         
-        <div className="bg-white/10 p-3 rounded-lg">
-          <div className="flex items-center">
-          <div className="flex items-center">
-          <div className="flex items-center">
-            <div className="bg-yellow-400 text-blue-900 h-8 w-8 rounded-full flex items-center justify-center font-bold mr-3">3</div>
-            <h4 className="font-bold">Zodiac Exchange</h4>
-          </div>
-          <p className="mt-2 text-sm text-white/80 pl-11">
-            Gift each other items that represent your shared {sign.name || 'zodiac'} traits and celebrate your cosmic connection.
-          </p>
-          <button
-            onClick={() => handlePlanningClick('Zodiac Exchange')}
-            className="mt-2 ml-11 text-sm text-yellow-400 hover:underline"
-          >
-            Start planning →
-          </button>
+      <div className="bg-white/10 p-3 rounded-lg">
+        <div className="flex items-center">
+          <div className="bg-yellow-400 text-blue-900 h-8 w-8 rounded-full flex items-center justify-center font-bold mr-3">3</div>
+          <h4 className="font-bold">Zodiac Exchange</h4>
         </div>
+        <p className="mt-2 text-sm text-white/80 pl-11">
+          Gift each other items that represent your shared {sign.name || 'zodiac'} traits and celebrate your cosmic connection.
+        </p>
+        <button
+          onClick={() => handlePlanningClick('Zodiac Exchange')}
+          className="mt-2 ml-11 text-sm text-yellow-400 hover:underline"
+        >
+          Start planning →
+        </button>
+      </div>
+    </div>
     </div>
   );
 }
