@@ -65,13 +65,13 @@ export default function NavBar() {
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ${open ? "max-h-screen" : "max-h-0"}`}
       >
-        <ul className="flex flex-col space-y-2 p-4 bg-[#0a0a5b] rounded-md list-none">
+        <ul className="flex flex-col space-y-2 p-4 bg-blue-800 rounded-lg shadow-lg list-none">
           {links.map((l) => (
             <li key={l.href}>
               <Link
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="block py-2 text-white no-underline"
+                className="block py-2 text-white visited:text-white no-underline hover:bg-blue-700 rounded"
               >
                 {l.label}
               </Link>
@@ -80,7 +80,7 @@ export default function NavBar() {
           <li className="pt-2 font-semibold">
             <button
               onClick={() => setTiersOpen(!tiersOpen)}
-              className="flex items-center w-full text-left"
+              className="flex items-center w-full text-left py-2 text-white visited:text-white no-underline hover:bg-blue-700 rounded"
             >
               Tiers <span className="ml-1">{tiersOpen ? "▴" : "▾"}</span>
             </button>
@@ -91,7 +91,7 @@ export default function NavBar() {
                     <Link
                       href={t.href}
                       onClick={() => setOpen(false)}
-                      className="block py-1 text-white no-underline"
+                      className="block py-1 text-white visited:text-white no-underline hover:bg-blue-700 rounded"
                     >
                       {t.label}
                     </Link>
