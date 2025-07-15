@@ -20,7 +20,7 @@ export default function CoCelebrationIdeas({ currentSign = {} }) {
             <h4 className="font-bold">Joint Adventure</h4>
           </div>
           <p className="mt-2 text-sm text-white/80 pl-11">
-            Pool resources with your birthday twins for an epic {currentSign.element ? currentSign.element.toLowerCase() : 'zodiac'}-themed adventure that satisfies your {currentSign?.name || 'zodiac'} spirit.
+            Pool resources with your birthday twins for an epic {currentSign?.element ? currentSign.element.toLowerCase() : 'zodiac'}-themed adventure that satisfies your {currentSign?.name || 'zodiac'} spirit.
           </p>
           <button 
             onClick={() => handlePlanningClick('Joint Adventure')}
