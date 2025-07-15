@@ -1,19 +1,34 @@
 import EventDetail from '@/components/EventDetail';
 
+// Shared event data to maintain consistency
+const eventInfo = {
+  title: "Galaxy Rooftop",
+  fullTitle: "Galaxy Rooftop Event",
+  description: "Join us for an unforgettable night at the Galaxy Rooftop with stunning views, amazing music, and great company.",
+  imageUrl: "/images/galaxy-rooftop.jpg",
+  imageDimensions: { width: 1200, height: 630 },
+};
+
 export const metadata = {
-  title: 'Galaxy Rooftop Event',
-  description: 'Join us for an unforgettable night at the Galaxy Rooftop with stunning views, amazing music, and great company.',
+  title: eventInfo.fullTitle,
+  description: eventInfo.description,
   openGraph: {
-    title: 'Galaxy Rooftop Event',
-    description: 'Join us for an unforgettable night at the Galaxy Rooftop with stunning views, amazing music, and great company.',
+    title: eventInfo.fullTitle,
+    description: eventInfo.description,
     images: [
       {
-        url: '/images/galaxy-rooftop.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Galaxy Rooftop Event',
+        url: eventInfo.imageUrl,
+        width: eventInfo.imageDimensions.width,
+        height: eventInfo.imageDimensions.height,
+        alt: eventInfo.fullTitle,
       },
     ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: eventInfo.fullTitle,
+    description: eventInfo.description,
+    images: [eventInfo.imageUrl],
   },
 };
 
@@ -24,13 +39,10 @@ export const metadata = {
  */
 export default function GalaxyRooftopEventPage() {
   const eventData = {
-    title: "Galaxy Rooftop",
+    ...eventInfo,
     date: "2024-12-31",
     time: "9:00 PM - 2:00 AM",
     location: "Galaxy Rooftop Lounge, Downtown",
-    description: "Join us for an unforgettable night at the Galaxy Rooftop with stunning views, amazing music, and great company.",
-    imageUrl: "/images/galaxy-rooftop.jpg",
-    imageDimensions: { width: 1200, height: 630 },
     ticketPrice: "$50",
     capacity: 200
   };
