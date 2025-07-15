@@ -5,6 +5,11 @@ export const metadata = {
   description: 'Join us for an unforgettable night at the Galaxy Rooftop with stunning views, amazing music, and great company.',
 };
 
+/**
+ * Galaxy Rooftop Event Page
+ * Displays details for the Galaxy Rooftop event
+ * @returns {JSX.Element} The rendered event detail page
+ */
 export default function GalaxyRooftopEventPage() {
   const eventData = {
     title: "Galaxy Rooftop",
