@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 // import Link from 'next/link'; // Uncomment if using Next.js routing
 
 function BirthdayBlessingPage() {
@@ -56,11 +57,16 @@ function BirthdayBlessingPage() {
     <div className="min-h-screen bg-gradient-to-b from-blue-900 to-black text-white py-6 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="max-w-3xl mx-auto space-y-8">
         {/* Hero Section */}
-        <div className="bg-white/10 backdrop-blur rounded-lg p-4 shadow-lg text-center space-y-4">
-          <img
-            src={aiPhotoUrl || "/images/default_birthday.jpg"}
-            alt={recipient.name}
-            className="w-32 h-32 rounded-full mx-auto shadow-md object-cover"
+          <div className="w-32 h-32 rounded-full mx-auto shadow-md overflow-hidden relative">
+            <Image
+              src={aiPhotoUrl || "/images/default_birthday.jpg"}
+              alt={recipient.name}
+              layout="fill"
+              objectFit="cover"
+              className="rounded-full"
+              priority
+            />
+          </div>
           />
           <h1 className="text-3xl font-bold">{`🎉 ${recipient.name}'s ${recipient.age}th Birthday`}</h1>
           <p className="text-white/80">{birthdayMessage}</p>
