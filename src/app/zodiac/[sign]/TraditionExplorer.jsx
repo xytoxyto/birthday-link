@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export default function TraditionExplorer({ currentSign }) {
   return (
     <div className="bg-white/10 backdrop-blur rounded-lg p-4 shadow-lg text-white mt-6">
@@ -63,7 +65,13 @@ export default function TraditionExplorer({ currentSign }) {
       
       <button className="w-full mt-4 bg-white/20 text-white px-4 py-2 rounded-full hover:bg-white/30 transition">
         Explore More Traditions
-      </button>
-    </div>
+  );
+}
+
+TraditionExplorer.propTypes = {
+  currentSign: PropTypes.shape({
+    name: PropTypes.string.isRequired
+  }).isRequired
+};   </div>
   );
 }
