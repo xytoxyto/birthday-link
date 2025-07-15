@@ -3,8 +3,8 @@
 import PropTypes from 'prop-types';
 
 export default function CoCelebrationIdeas({ currentSign = { name: '', element: '' } }) {
-  // Ensure currentSign is always an object with name and element properties
-  const sign = currentSign || { name: '', element: '' };
+  // Using the currentSign with default parameter values
+  const sign = currentSign;
   
   const handlePlanningClick = (planType) => {
     console.log(`Planning started for: ${planType}`);
