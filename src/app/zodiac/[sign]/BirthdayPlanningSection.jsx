@@ -1,6 +1,6 @@
 "use client";
 
-export default function CoCelebrationIdeas({ currentSign }) {
+export default function BirthdayPlanningSection({ currentSign }) {
   return (
     <div className="bg-white/10 backdrop-blur rounded-lg p-4 shadow-lg text-white mt-6">
       <h3 className="text-xl font-semibold mb-2">Co-Celebration Ideas</h3>
