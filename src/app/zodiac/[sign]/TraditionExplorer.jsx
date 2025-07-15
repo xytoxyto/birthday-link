@@ -14,7 +14,7 @@ export default function TraditionExplorer({ currentSign }) {
             <div>
               <h4 className="font-bold">Japan</h4>
               <p className="text-sm text-white/80">
-                Red is considered lucky for Aries in Japan. Birthday celebrations often include 
+                Red is considered lucky for {currentSign.name} in Japan. Birthday celebrations often include 
                 red bean mochi and prosperity symbols.
               </p>
             </div>
@@ -27,7 +27,7 @@ export default function TraditionExplorer({ currentSign }) {
             <div>
               <h4 className="font-bold">Mexico</h4>
               <p className="text-sm text-white/80">
-                Aries birthdays in Mexico might include a piñata filled with spicy candy to 
+                {currentSign.name} birthdays in Mexico might include a piñata filled with spicy candy to 
                 represent the fire sign's bold nature.
               </p>
             </div>
@@ -40,7 +40,7 @@ export default function TraditionExplorer({ currentSign }) {
             <div>
               <h4 className="font-bold">India</h4>
               <p className="text-sm text-white/80">
-                Aries birthdays may incorporate red sandal paste blessings and energetic 
+                {currentSign.name} birthdays may incorporate red sandal paste blessings and energetic 
                 Bhangra dancing to channel Mars energy.
               </p>
             </div>
@@ -53,8 +53,8 @@ export default function TraditionExplorer({ currentSign }) {
             <div>
               <h4 className="font-bold">Brazil</h4>
               <p className="text-sm text-white/80">
-                Brazilian Aries celebrations often include competitive capoeira displays 
-                and spicy feijoada to honor the ram's passionate nature.
+                Brazilian {currentSign.name} celebrations often include competitive capoeira displays 
+                and spicy feijoada to honor the zodiac's passionate nature.
               </p>
             </div>
           </div>
