@@ -1,4 +1,5 @@
 "use client";
+import PropTypes from 'prop-types';
 
 export default function BirthdayPlanningSection({ currentSign = { name: '', element: '' } }) {
   const handlePlanningClick = (planType) => {
@@ -62,6 +63,13 @@ export default function BirthdayPlanningSection({ currentSign = { name: '', elem
           </button>
         </div>
       </div>
-    </div>
   );
+}
+
+BirthdayPlanningSection.propTypes = {
+  currentSign: PropTypes.shape({
+    name: PropTypes.string,
+    element: PropTypes.string
+  })
+}; );
 }
