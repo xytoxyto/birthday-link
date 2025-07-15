@@ -1,5 +1,4 @@
 import EventDetail from '@/components/EventDetail';
-import { Metadata } from 'next';
 
 export const metadata = {
   title: 'Galaxy Rooftop Event',
