@@ -11,22 +11,19 @@ export default function CoCelebrationIdeas({ currentSign = { name: '', element: 
     // Add your planning logic here
   };
 
+  return (
+    <div>
       <p className="text-white/80 mb-4">
         Sharing your birthday with other {sign.name || 'zodiac signs'}? Here are perfect ways to celebrate together:
-      </p>
-      <p className="text-white/80 mb-4">
-        Sharing your birthday with other {currentSign?.name || 'zodiac signs'}? Here are perfect ways to celebrate together:
       </p>
       
       <div className="space-y-3">
         <div className="bg-white/10 p-3 rounded-lg">
           <div className="flex items-center">
-          <p className="mt-2 text-sm text-white/80 pl-11">
-            Pool resources with your birthday twins for an epic {sign.element ? sign.element.toLowerCase() : 'zodiac'}-themed adventure that satisfies your {sign.name || 'zodiac'} spirit.
-          </p>
-          <p className="mt-2 text-sm text-white/80 pl-11">
-            Pool resources with your birthday twins for an epic {currentSign?.element ? currentSign.element.toLowerCase() : 'zodiac'}-themed adventure that satisfies your {currentSign?.name || 'zodiac'} spirit.
-          </p>
+            <p className="mt-2 text-sm text-white/80 pl-11">
+              Pool resources with your birthday twins for an epic {sign.element ? sign.element.toLowerCase() : 'zodiac'}-themed adventure that satisfies your {sign.name || 'zodiac'} spirit.
+            </p>
+          </div>
           <button 
             onClick={() => handlePlanningClick('Joint Adventure')}
             className="mt-2 ml-11 text-sm text-yellow-400 hover:underline"
@@ -37,12 +34,10 @@ export default function CoCelebrationIdeas({ currentSign = { name: '', element: 
         
         <div className="bg-white/10 p-3 rounded-lg">
           <div className="flex items-center">
-          <p className="mt-2 text-sm text-white/80 pl-11">
-            Create a two-location party that reflects both of your unique {sign.name || 'zodiac'} personalities while celebrating what you share.
-          </p>
-          <p className="mt-2 text-sm text-white/80 pl-11">
-            Create a two-location party that reflects both of your unique {currentSign?.name || 'zodiac'} personalities while celebrating what you share.
-          </p>
+            <p className="mt-2 text-sm text-white/80 pl-11">
+              Create a two-location party that reflects both of your unique {sign.name || 'zodiac'} personalities while celebrating what you share.
+            </p>
+          </div>
           <button 
             onClick={() => handlePlanningClick('Dual Destination')}
             className="mt-2 ml-11 text-sm text-yellow-400 hover:underline"
@@ -53,12 +48,10 @@ export default function CoCelebrationIdeas({ currentSign = { name: '', element: 
         
         <div className="bg-white/10 p-3 rounded-lg">
           <div className="flex items-center">
-          <p className="mt-2 text-sm text-white/80 pl-11">
-            Gift each other items that represent your shared {sign.name || 'zodiac'} traits and celebrate your cosmic connection.
-          </p>
-          <p className="mt-2 text-sm text-white/80 pl-11">
-            Gift each other items that represent your shared {currentSign?.name || 'zodiac'} traits and celebrate your cosmic connection.
-          </p>
+            <p className="mt-2 text-sm text-white/80 pl-11">
+              Gift each other items that represent your shared {sign.name || 'zodiac'} traits and celebrate your cosmic connection.
+            </p>
+          </div>
           <button 
             onClick={() => handlePlanningClick('Zodiac Exchange')}
             className="mt-2 ml-11 text-sm text-yellow-400 hover:underline"
