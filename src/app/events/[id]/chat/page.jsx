@@ -631,7 +631,6 @@ function VenueCard({ image, name, description, tier, availability, tags, index, 
     </motion.div>
   );
 }
-}
 
 // Update venue data to include these properties
 const venues = [
