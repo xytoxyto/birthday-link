@@ -42,7 +42,7 @@ export default function BirthChartCompatibility() {
   return (
     <div className="mt-6 p-4 bg-white/20 rounded-lg">
       <div className="flex justify-between items-center mb-2">
-        <h3 className="text-xl font-semibold text-white">Group Celebration Compatibility</h3>
+        <h3 className="text-xl font-semibold text-white text-center w-full">Group Celebration Compatibility</h3>
       </div>
       
       <div className="mt-3">
