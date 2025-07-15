@@ -9,28 +9,30 @@ const eventInfo = {
   imageDimensions: { width: 1200, height: 630 },
 };
 
-export const metadata = {
-  title: eventInfo.fullTitle,
-  description: eventInfo.description,
-  openGraph: {
+export const generateMetadata = () => {
+  return {
     title: eventInfo.fullTitle,
     description: eventInfo.description,
-    images: [
-      {
-        url: eventInfo.imageUrl,
-        width: eventInfo.imageDimensions.width,
-        height: eventInfo.imageDimensions.height,
-        alt: eventInfo.fullTitle,
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: eventInfo.fullTitle,
-    description: eventInfo.description,
-    images: [eventInfo.imageUrl],
-  },
-};
+    openGraph: {
+      title: eventInfo.fullTitle,
+      description: eventInfo.description,
+      images: [
+        {
+          url: eventInfo.imageUrl,
+          width: eventInfo.imageDimensions.width,
+          height: eventInfo.imageDimensions.height,
+          alt: eventInfo.fullTitle,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: eventInfo.fullTitle,
+      description: eventInfo.description,
+      images: [eventInfo.imageUrl],
+    },
+  };
+}
 
 /**
  * Galaxy Rooftop Event Page
@@ -44,7 +46,10 @@ export default function GalaxyRooftopEventPage() {
     time: "9:00 PM - 2:00 AM",
     location: "Galaxy Rooftop Lounge, Downtown",
     ticketPrice: "$50",
-    capacity: 200
+    capacity: 200,
+    slug: "galaxy-rooftop", // Add slug for URL sharing
+    isShareable: true, // Enable sharing functionality
+    organizer: "Galaxy Events" // Add organizer information
   };
   
   return <EventDetail event={eventData} />;
