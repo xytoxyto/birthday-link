@@ -25,30 +25,30 @@ export default function DashboardEvents() {
       </div>
 
       <div className="space-y-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6">
-        <div className="rounded-lg bg-white/10 backdrop-blur p-6 shadow-lg text-white space-y-4">
-          <h2 className="text-xl font-bold">Galaxy Rooftop Party</h2>
-          <p className="text-sm">September 15, 2024</p>
+        <div className="bg-white/10 backdrop-blur rounded-lg p-4 shadow-lg space-y-2">
+          <h3 className="text-xl font-bold text-white">🎉 Galaxy Rooftop Party</h3>
+          <p className="text-white/80">September 15, 2024 · The Grand Rooftop</p>
           <TierBadge tier="Galaxy" />
-          <button className="mt-4 w-full bg-yellow-400 text-blue-900 font-semibold px-4 py-2 rounded-full shadow hover:bg-yellow-300 transition">
-            RSVP
+          <button className="w-full bg-yellow-400 text-blue-900 font-semibold px-4 py-2 rounded-full shadow hover:bg-yellow-300 transition">
+            Learn More
           </button>
         </div>
 
-        <div className="rounded-lg bg-white/10 backdrop-blur p-6 shadow-lg text-white space-y-4">
-          <h2 className="text-xl font-bold">Elite Lounge Dinner</h2>
-          <p className="text-sm">October 3, 2024</p>
+        <div className="bg-white/10 backdrop-blur rounded-lg p-4 shadow-lg space-y-2">
+          <h3 className="text-xl font-bold text-white">🎉 Elite Lounge Dinner</h3>
+          <p className="text-white/80">October 3, 2024 · Sky Lounge</p>
           <TierBadge tier="Elite" />
-          <button className="mt-4 w-full bg-yellow-400 text-blue-900 font-semibold px-4 py-2 rounded-full shadow hover:bg-yellow-300 transition">
-            RSVP
+          <button className="w-full bg-yellow-400 text-blue-900 font-semibold px-4 py-2 rounded-full shadow hover:bg-yellow-300 transition">
+            Learn More
           </button>
         </div>
 
-        <div className="rounded-lg bg-white/10 backdrop-blur p-6 shadow-lg text-white space-y-4">
-          <h2 className="text-xl font-bold">Cosmic Bowling Night</h2>
-          <p className="text-sm">November 20, 2024</p>
+        <div className="bg-white/10 backdrop-blur rounded-lg p-4 shadow-lg space-y-2">
+          <h3 className="text-xl font-bold text-white">🎉 Cosmic Bowling Night</h3>
+          <p className="text-white/80">November 20, 2024 · Stellar Lanes</p>
           <TierBadge tier="Cosmic" />
-          <button className="mt-4 w-full bg-yellow-400 text-blue-900 font-semibold px-4 py-2 rounded-full shadow hover:bg-yellow-300 transition">
-            RSVP
+          <button className="w-full bg-yellow-400 text-blue-900 font-semibold px-4 py-2 rounded-full shadow hover:bg-yellow-300 transition">
+            Learn More
           </button>
         </div>
       </div>
