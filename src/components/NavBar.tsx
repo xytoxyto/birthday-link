@@ -5,6 +5,7 @@ import Link from "next/link";
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
+  const [tiersOpen, setTiersOpen] = useState(false);
 
   const links = [
     { href: "/", label: "Home" },
@@ -64,22 +65,41 @@ export default function NavBar() {
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ${open ? "max-h-screen" : "max-h-0"}`}
       >
-        <ul className="flex flex-col space-y-2 p-4 bg-[#0a0a5b] list-none">
+        <ul className="flex flex-col space-y-2 p-4 bg-[#0a0a5b] rounded-md list-none">
           {links.map((l) => (
             <li key={l.href}>
-              <Link href={l.href} onClick={() => setOpen(false)} className="block py-2">
+              <Link
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="block py-2 text-white no-underline"
+              >
                 {l.label}
               </Link>
             </li>
           ))}
-          <li className="pt-2 font-semibold">Tiers</li>
-          {tierLinks.map((t) => (
-            <li key={t.href} className="ml-2">
-              <Link href={t.href} onClick={() => setOpen(false)} className="block py-1">
-                {t.label}
-              </Link>
-            </li>
-          ))}
+          <li className="pt-2 font-semibold">
+            <button
+              onClick={() => setTiersOpen(!tiersOpen)}
+              className="flex items-center w-full text-left"
+            >
+              Tiers <span className="ml-1">{tiersOpen ? "▴" : "▾"}</span>
+            </button>
+            {tiersOpen && (
+              <ul className="pl-4 space-y-1 mt-1">
+                {tierLinks.map((t) => (
+                  <li key={t.href}>
+                    <Link
+                      href={t.href}
+                      onClick={() => setOpen(false)}
+                      className="block py-1 text-white no-underline"
+                    >
+                      {t.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
         </ul>
       </div>
     </header>
