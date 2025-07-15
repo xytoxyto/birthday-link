@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import TierBadge from '@/components/TierBadge';
 import { motion } from 'framer-motion';
 import TraditionExplorer from '@/components/TraditionExplorer';
+import BirthChartCompatibility from '@/components/BirthChartCompatibility';
 
 export default function ZodiacSignPage() {
   const params = useParams();
@@ -290,6 +291,9 @@ export default function ZodiacSignPage() {
                       and activities that channel your natural {currentSign.traits[0].name.toLowerCase()} spirit.
                     </p>
                   </div>
+                  
+                  {/* Use the BirthChartCompatibility component */}
+                  <BirthChartCompatibility currentSign={currentSign} />
                 </>
               ) : (
                 <div className="text-center py-8">
