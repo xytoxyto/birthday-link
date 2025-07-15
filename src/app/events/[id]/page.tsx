@@ -12,6 +12,9 @@ export default function EventDetailPage({ params }: { params: { id: string } }) 
   // Access the event ID from the URL params
   const { id } = params;
   
+  // In a real app, you would fetch event data here
+  // const { data: event, isLoading, error } = useSomeDataFetchingHook(id);
+  
   return (
     <main className="min-h-screen bg-gradient-to-b from-blue-950 via-purple-900 to-blue-900 text-white flex flex-col">
       <section className="flex-grow flex items-center justify-center text-center p-4 md:p-8">
@@ -23,12 +26,20 @@ export default function EventDetailPage({ params }: { params: { id: string } }) 
             View details for this curated birthday celebration. Check the venue, guest list,
             premium service options, and RSVP to join the experience. Make it unforgettable!
           </p>
-          <Link
-            href="/events"
-            className="inline-block bg-birthday-gold text-purple-900 font-bold px-4 py-2 md:px-6 md:py-3 rounded-full shadow hover:bg-yellow-400 transition text-sm md:text-base"
-          >
-            Back to Events
-          </Link>
+          <div className="flex gap-4 justify-center mt-6">
+            <Link
+              href="/events"
+              className="inline-block bg-birthday-gold text-purple-900 font-bold px-4 py-2 md:px-6 md:py-3 rounded-full shadow hover:bg-yellow-400 transition text-sm md:text-base"
+            >
+              Back to Events
+            </Link>
+            <Link
+              href={`/events/${id}/rsvp`}
+              className="inline-block bg-purple-600 text-white font-bold px-4 py-2 md:px-6 md:py-3 rounded-full shadow hover:bg-purple-500 transition text-sm md:text-base"
+            >
+              RSVP Now
+            </Link>
+          </div>
         </div>
       </section>
     </main>
