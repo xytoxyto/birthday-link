@@ -24,6 +24,7 @@ export default function BirthdayConnectionMap() {
       setTimeout(() => {
         resolve({
           name: 'You',
+          sign: currentSign.name,
           connections: [
             { sign: 'Leo', strength: 80 },
             { sign: 'Sagittarius', strength: 70 },
@@ -33,7 +34,7 @@ export default function BirthdayConnectionMap() {
       }, 1000);
     });
     setUserData(data);
-  }, []); // No dependencies needed as the function doesn't use any external values
+  }, [currentSign]); // Add currentSign as a dependency since we're using it in the function
 
   // Fetch data on component mount
   useEffect(() => {
