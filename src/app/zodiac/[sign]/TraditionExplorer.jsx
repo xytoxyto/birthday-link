@@ -87,6 +87,7 @@ export default function TraditionExplorer({ currentSign }) {
       <button 
         className="w-full mt-4 bg-white/20 text-white px-4 py-2 rounded-full hover:bg-white/30 transition"
         aria-label="Explore more birthday traditions"
+        onClick={() => console.log('Exploring more traditions')}
       >
         Explore More Traditions
       </button>
