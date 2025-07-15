@@ -1,14 +1,20 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+type EventParams = {
+  params: {
+    id: string;
+  };
+};
+
+export async function generateMetadata({ params }: EventParams): Promise<Metadata> {
   return {
     title: `Birthday Event: ${params.id} | Birthday Link`,
     description: 'View details for this curated birthday celebration with venue, guest list, and RSVP options.',
   };
 }
 
-export default function EventDetailPage({ params }: { params: { id: string } }) {
+export default function EventDetailPage({ params }: EventParams) {
   // Access the event ID from the URL params
   const { id } = params;
   
