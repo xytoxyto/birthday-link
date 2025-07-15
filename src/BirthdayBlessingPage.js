@@ -49,7 +49,7 @@ function BirthdayBlessingPage() {
     // Replace with your API call to process contribution
     setBlessings([
       ...blessings,
-      { message: contributionMessage, amount: contributionAmount, from: "You" },
+      { message: contributionMessage, amount: Number(contributionAmount), from: "You" },
     ]);
     setContributionAmount("");
     setContributionMessage("");
@@ -64,8 +64,8 @@ function BirthdayBlessingPage() {
             <Image
               src={aiPhotoUrl || "/images/default_birthday.jpg"}
               alt={recipient.name}
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: "cover" }}
               className="rounded-full"
               priority
             />
