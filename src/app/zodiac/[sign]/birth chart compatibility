@@ -1,4 +1,6 @@
 // Add this to premium content section
+import TraditionExplorer from '@/components/TraditionExplorer';
+
 <div className="mt-6 p-4 bg-white/20 rounded-lg">
   <div className="flex justify-between items-center mb-2">
     <h3 className="text-xl font-semibold text-white">Group Celebration Compatibility</h3>
