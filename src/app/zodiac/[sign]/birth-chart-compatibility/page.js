@@ -2,6 +2,23 @@
 import { useState } from 'react';
 
 export default function BirthChartCompatibility() {
+  const getSignAttribute = (sign) => {
+    const attributes = {
+      'Aries': 'leadership',
+      'Leo': 'flair for drama',
+      'Gemini': 'social skills',
+      'Taurus': 'stability',
+      'Cancer': 'nurturing nature',
+      'Virgo': 'attention to detail',
+      'Libra': 'harmony',
+      'Scorpio': 'intensity',
+      'Sagittarius': 'enthusiasm',
+      'Capricorn': 'determination',
+      'Aquarius': 'innovation',
+      'Pisces': 'imagination'
+    };
+    return attributes[sign] || 'unique energy';
+  };
   const [people, setPeople] = useState([
     { id: 1, name: 'You', sign: 'Aries' },
     { id: 2, name: 'Alex', sign: 'Leo' },
@@ -26,15 +43,21 @@ export default function BirthChartCompatibility() {
     <div className="mt-6 p-4 bg-white/20 rounded-lg">
       <div className="flex justify-between items-center mb-2">
         <h3 className="text-xl font-semibold text-white">Group Celebration Compatibility</h3>
-        <span className="bg-yellow-400 text-blue-900 text-xs rounded-full px-2 py-1">Premium</span>
+      <div className="mt-3">
+        <p className="text-sm text-white/80">
+          Your group has excellent celebration energy! 
+          {people.map((person, index) => (
+            <span key={person.id}>
+              {index === 0 ? ' With ' : index === people.length - 1 ? ' and ' : ', '}
+              {person.sign}&apos;s {getSignAttribute(person.sign)}
+            </span>
+          ))}
+          , your joint birthday will be unforgettable.
+        </p>
+        <button className="w-full bg-yellow-400 text-blue-900 font-semibold px-4 py-2 rounded-full shadow hover:bg-yellow-300 transition">
+          Generate Full Group Reading
+        </button>
       </div>
-      
-      <div className="flex flex-wrap gap-2 mb-3">
-        {people.map(person => (
-          <div key={person.id} className="bg-white/10 rounded-full px-3 py-1 text-sm flex items-center">
-            <span>{person.name} ({person.sign})</span>
-            <button 
-              onClick={() => removePerson(person.id)} 
               className="ml-2 text-white/50 hover:text-white/80"
             >
               ✕
