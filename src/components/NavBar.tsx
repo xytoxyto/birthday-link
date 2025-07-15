@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import ThemeToggle from "./ThemeToggle";
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
@@ -33,43 +34,46 @@ export default function NavBar() {
         </Link>
         
         {/* Desktop Navigation - Add this section */}
-        <nav className="hidden md:block">
-          <ul className="flex space-x-6">
-            {links.map((l) => (
-              <li key={l.href}>
-                <Link
-                  href={l.href}
-                  className="text-white hover:text-yellow-300 transition"
+        <div className="hidden md:flex items-center gap-6">
+          <nav>
+            <ul className="flex space-x-6">
+              {links.map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className="text-white hover:text-yellow-300 transition"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+              <li className="relative">
+                <button
+                  onClick={() => setDesktopTiersOpen(!desktopTiersOpen)}
+                  className="text-white hover:text-yellow-300 transition flex items-center"
+                  onBlur={() => setTimeout(() => setDesktopTiersOpen(false), 100)}
                 >
-                  {l.label}
-                </Link>
+                  Tiers {desktopTiersOpen ? "▴" : "▾"}
+                </button>
+                {desktopTiersOpen && (
+                  <ul className="absolute z-10 right-0 mt-2 w-48 bg-blue-900 rounded-lg shadow-lg overflow-hidden">
+                    {tierLinks.map((t) => (
+                      <li key={t.href}>
+                        <Link
+                          href={t.href}
+                          className="block px-4 py-2 text-white hover:bg-blue-800 transition"
+                        >
+                          {t.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
-            ))}
-            <li className="relative">
-              <button
-                onClick={() => setDesktopTiersOpen(!desktopTiersOpen)}
-                className="text-white hover:text-yellow-300 transition flex items-center"
-                onBlur={() => setTimeout(() => setDesktopTiersOpen(false), 100)}
-              >
-                Tiers {desktopTiersOpen ? "▴" : "▾"}
-              </button>
-              {desktopTiersOpen && (
-                <ul className="absolute z-10 right-0 mt-2 w-48 bg-blue-900 rounded-lg shadow-lg overflow-hidden">
-                  {tierLinks.map((t) => (
-                    <li key={t.href}>
-                      <Link
-                        href={t.href}
-                        className="block px-4 py-2 text-white hover:bg-blue-800 transition"
-                      >
-                        {t.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </li>
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+          <ThemeToggle />
+        </div>
         
         <button
           onClick={() => setOpen(!open)}
@@ -116,6 +120,9 @@ export default function NavBar() {
                 ))}
               </ul>
             )}
+          </li>
+          <li className="pt-2 flex justify-center">
+            <ThemeToggle />
           </li>
         </ul>
       </div>
