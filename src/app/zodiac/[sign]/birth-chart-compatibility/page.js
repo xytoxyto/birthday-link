@@ -16,7 +16,7 @@ export default function BirthChartCompatibility() {
 
   const addPerson = () => {
     if (newName.trim()) {
-      const newId = Math.max(0, ...people.map(p => p.id)) + 1;
+      const newId = people.length > 0 ? Math.max(...people.map(p => p.id)) + 1 : 1;
       setPeople([...people, { id: newId, name: newName, sign: newSign }]);
       setNewName('');
     }
