@@ -46,26 +46,22 @@ export default function TraditionExplorer({ currentSign }) {
     {
       country: "Japan",
       flag: "🇯🇵",
-      description: `In Japan, ${currentSign.name} birthdays are celebrated with special customs that honor your zodiac traits. 
-                    Birthday celebrations often include traditional mochi and prosperity symbols.`
+      description: `In Japan, ${currentSign.name} birthdays are celebrated with special customs that honor your zodiac traits. Birthday celebrations often include traditional mochi and prosperity symbols.`
     },
     {
       country: "Mexico",
       flag: "🇲🇽",
-      description: `${currentSign.name} birthdays in Mexico incorporate colorful celebrations with piñatas and traditional foods 
-                    that reflect the unique energy of your zodiac sign.`
+      description: `${currentSign.name} birthdays in Mexico incorporate colorful celebrations with piñatas and traditional foods that reflect the unique energy of your zodiac sign.`
     },
     {
       country: "India",
       flag: "🇮🇳",
-      description: `${currentSign.name} birthdays in India may include special blessings and ceremonies designed to enhance 
-                    the natural qualities associated with your zodiac sign.`
+      description: `${currentSign.name} birthdays in India may include special blessings and ceremonies designed to enhance the natural qualities associated with your zodiac sign.`
     },
     {
       country: "Brazil",
       flag: "🇧🇷",
-      description: `Brazilian ${currentSign.name} celebrations blend traditional music and food with customs that 
-                    celebrate the distinctive character of your zodiac sign.`
+      description: `Brazilian ${currentSign.name} celebrations blend traditional music and food with customs that celebrate the distinctive character of your zodiac sign.`
     }
   ];
 
