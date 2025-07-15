@@ -21,7 +21,6 @@ export default function BirthdayPlanningSection({ currentSign }) {
             <h4 className="font-bold">Shared Adventure</h4>
           </div>
           <p className="mt-2 text-sm text-white/80 pl-11">
-          <p className="mt-2 text-sm text-white/80 pl-11">
             Pool resources with your birthday twins for an epic {sign.element ? sign.element.toLowerCase() : 'special'}-themed adventure that satisfies your {sign.name || 'zodiac'} spirit.
           </p>
           <button
@@ -30,9 +29,9 @@ export default function BirthdayPlanningSection({ currentSign }) {
           >
             Start planning →
           </button>
+        </div>
         
         <div className="bg-white/10 p-3 rounded-lg">
-          <div className="flex items-center">
           <div className="flex items-center">
             <div className="bg-yellow-400 text-blue-900 h-8 w-8 rounded-full flex items-center justify-center font-bold mr-3">2</div>
             <h4 className="font-bold">Dual Destination Celebration</h4>
@@ -51,8 +50,10 @@ export default function BirthdayPlanningSection({ currentSign }) {
         <div className="bg-white/10 p-3 rounded-lg">
           <div className="flex items-center">
           <div className="flex items-center">
+          <div className="flex items-center">
             <div className="bg-yellow-400 text-blue-900 h-8 w-8 rounded-full flex items-center justify-center font-bold mr-3">3</div>
             <h4 className="font-bold">Zodiac Exchange</h4>
+          </div>
           <p className="mt-2 text-sm text-white/80 pl-11">
             Gift each other items that represent your shared {sign.name || 'zodiac'} traits and celebrate your cosmic connection.
           </p>
@@ -62,9 +63,7 @@ export default function BirthdayPlanningSection({ currentSign }) {
           >
             Start planning →
           </button>
-          </button>
         </div>
-      </div>
     </div>
   );
 }
