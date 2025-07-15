@@ -1,5 +1,10 @@
 import EventDetail from '@/components/EventDetail';
 
 export default function GalaxyRooftopEventPage() {
-  return <EventDetail />;
+  const eventData = {
+    title: "Galaxy Rooftop",
+    // Add other required props like date, location, description, etc.
+  };
+  
+  return <EventDetail event={eventData} />;
 }
