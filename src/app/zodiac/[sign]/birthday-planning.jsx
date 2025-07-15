@@ -20,7 +20,7 @@ export default function CoCelebrationIdeas({ currentSign = {} }) {
             <h4 className="font-bold">Joint Adventure</h4>
           </div>
           <p className="mt-2 text-sm text-white/80 pl-11">
-            Pool resources with your birthday twins for an epic {currentSign.element ? currentSign.element.toLowerCase() : 'zodiac'}-themed adventure that satisfies your {currentSign.name} spirit.
+            Pool resources with your birthday twins for an epic {currentSign.element ? currentSign.element.toLowerCase() : 'zodiac'}-themed adventure that satisfies your {currentSign?.name || 'zodiac'} spirit.
           </p>
           <button 
             onClick={() => handlePlanningClick('Joint Adventure')}
@@ -36,7 +36,7 @@ export default function CoCelebrationIdeas({ currentSign = {} }) {
             <h4 className="font-bold">Dual Destination</h4>
           </div>
           <p className="mt-2 text-sm text-white/80 pl-11">
-            Create a two-location party that reflects both of your unique {currentSign.name} personalities while celebrating what you share.
+            Create a two-location party that reflects both of your unique {currentSign?.name || 'zodiac'} personalities while celebrating what you share.
           </p>
           <button 
             onClick={() => handlePlanningClick('Dual Destination')}
@@ -52,7 +52,7 @@ export default function CoCelebrationIdeas({ currentSign = {} }) {
             <h4 className="font-bold">Zodiac Exchange</h4>
           </div>
           <p className="mt-2 text-sm text-white/80 pl-11">
-            Gift each other items that represent your shared {currentSign.name} traits and celebrate your cosmic connection.
+            Gift each other items that represent your shared {currentSign?.name || 'zodiac'} traits and celebrate your cosmic connection.
           </p>
           <button 
             onClick={() => handlePlanningClick('Zodiac Exchange')}
