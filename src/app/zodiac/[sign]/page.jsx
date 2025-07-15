@@ -2,7 +2,38 @@
 
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+export default function TraditionExplorer({ currentSign }) {
+  return (
+    <div className="bg-white/10 backdrop-blur rounded-lg p-4 shadow-lg text-white mt-6">
+      <h3 className="text-xl font-semibold mb-2">Birthday Traditions Around the World</h3>
+      <p className="text-white/80 mb-4">
+        Explore how {currentSign.name} birthdays are celebrated globally and incorporate these traditions 
+        into your shared celebrations.
+      </p>
+      
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="bg-white/10 rounded-lg p-3 hover:bg-white/20 transition cursor-pointer">
+          <div className="flex items-start">
+            <span className="text-2xl mr-3">🇯🇵</span>
+            <div>
+              <h4 className="font-bold">Japan</h4>
+              <p className="text-sm text-white/80">
+                Red is considered lucky for {currentSign.name} in Japan. Birthday celebrations often include 
+                red bean mochi and prosperity symbols.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        {/* Other countries... */}
+      </div>
+      
+      <button className="w-full mt-4 bg-white/20 text-white px-4 py-2 rounded-full hover:bg-white/30 transition">
+        Explore More Traditions
+      </button>
+    </div>
+  );
+}import { useState, useEffect } from 'react';
 import TierBadge from '@/components/TierBadge';
 import { motion } from 'framer-motion';
 
