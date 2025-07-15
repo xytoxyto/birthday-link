@@ -10,4 +10,4 @@ const config = {
   darkMode: 'class', // Enable class-based dark mode
 }
 
-export default config;
+module.exports = config;
