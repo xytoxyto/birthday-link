@@ -70,9 +70,6 @@
   }
   
   .btn-secondary {
-        
-    npm install -D tailwindcss postcss autoprefixer
-    
-    npx tailwindcss bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600;
+    @apply bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600;
   }
 }
