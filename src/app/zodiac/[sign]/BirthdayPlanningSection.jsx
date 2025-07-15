@@ -63,6 +63,7 @@ export default function BirthdayPlanningSection({ currentSign = { name: '', elem
           </button>
         </div>
       </div>
+    </div>
   );
 }
 
@@ -71,5 +72,4 @@ BirthdayPlanningSection.propTypes = {
     name: PropTypes.string,
     element: PropTypes.string
   })
-}; );
-}
+};
