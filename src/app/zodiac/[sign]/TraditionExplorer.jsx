@@ -74,9 +74,9 @@ export default function TraditionExplorer({ currentSign }) {
       </p>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {traditions.map((tradition) => (
+        {traditions.map((tradition, index) => (
           <TraditionCard 
-            key={tradition.country}
+            key={`${tradition.country}-${index}`}
             country={tradition.country}
             flag={tradition.flag}
             description={tradition.description}
