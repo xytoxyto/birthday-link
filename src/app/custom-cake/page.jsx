@@ -13,7 +13,7 @@ export default function CustomCakePage() {
   const [submitted, setSubmitted] = useState(false);
   const [step, setStep] = useState(1);
   const [errors, setErrors] = useState({});
-  const [userTier, setUserTier] = useState('cosmic'); // Get from user context in real app
+  const [userTier] = useState('cosmic'); // Get from user context in real app
 
   const basePrice = 29.99;
   const tierPrices = { galaxy: 10, elite: 20, cosmic: 5 };
@@ -68,12 +68,6 @@ export default function CustomCakePage() {
       }
     }
   }, []);
-
-  const saveCakeToProfile = () => {
-    localStorage.setItem('savedCake', JSON.stringify(cakeOptions));
-    // Here you would also save to backend
-    alert('Cake saved to your profile!');
-  };
 
   // Add image previews for cake styles
   const cakeStyleImages = {
