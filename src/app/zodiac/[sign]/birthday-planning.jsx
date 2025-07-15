@@ -2,7 +2,7 @@
 
 import PropTypes from 'prop-types';
 
-export default function CoCelebrationIdeas({ currentSign = {} }) {
+export default function CoCelebrationIdeas({ currentSign = { name: '', element: '' } }) {
   const handlePlanningClick = (planType) => {
     console.log(`Planning started for: ${planType}`);
     // Add your planning logic here
