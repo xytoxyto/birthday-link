@@ -1,5 +1,13 @@
 import Link from 'next/link';
+import SignupForm from '@/components/SignupForm';
 
+export default function SignupPage() {
+  return (
+    <main>
+      <SignupForm />
+    </main>
+  );
+}
 export default function SignupForm() {
   return (
     <section className="bg-gradient-to-b from-blue-900 to-purple-900 py-12 px-4 text-center">
