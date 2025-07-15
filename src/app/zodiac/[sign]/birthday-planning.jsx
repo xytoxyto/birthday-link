@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from 'react';
-
 export default function CoCelebrationIdeas({ currentSign }) {
   return (
     <div className="bg-white/10 backdrop-blur rounded-lg p-4 shadow-lg text-white mt-6">
