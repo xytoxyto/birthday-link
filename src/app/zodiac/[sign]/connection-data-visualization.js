@@ -38,11 +38,11 @@ export default function BirthdayConnectionMap() {
   }, [currentSign]); // Add currentSign as a dependency since we're using it in the function
   // Fetch data on component mount
   useEffect(() => {
-    if (initialRenderRef.current || currentSign.name !== userData?.sign) {
+    if (initialRenderRef.current || (userData && currentSign.name !== userData.sign)) {
       initialRenderRef.current = false;
       fetchUserData();
     }
-  }, [currentSign, fetchUserData, userData?.sign]);
+  }, [currentSign, fetchUserData]);
 
   if (!userData) {
     return (
