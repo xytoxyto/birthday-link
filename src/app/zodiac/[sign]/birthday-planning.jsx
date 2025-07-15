@@ -1,6 +1,6 @@
 "use client";
 
-export default function CoCelebrationIdeas({ currentSign }) {
+export default function CoCelebrationIdeas({ currentSign = {} }) {
   const handlePlanningClick = (planType) => {
     console.log(`Planning started for: ${planType}`);
     // Add your planning logic here
@@ -10,7 +10,7 @@ export default function CoCelebrationIdeas({ currentSign }) {
     <div className="bg-white/10 backdrop-blur rounded-lg p-4 shadow-lg text-white mt-6">
       <h3 className="text-xl font-semibold mb-2">Co-Celebration Ideas</h3>
       <p className="text-white/80 mb-4">
-        Sharing your birthday with other {currentSign.name}? Here are perfect ways to celebrate together:
+        Sharing your birthday with other {currentSign?.name || 'zodiac signs'}? Here are perfect ways to celebrate together:
       </p>
       
       <div className="space-y-3">
