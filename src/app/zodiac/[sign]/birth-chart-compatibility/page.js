@@ -55,7 +55,7 @@ export default function BirthChartCompatibility() {
         <p className="text-sm text-white/80">
           Your group has excellent celebration energy! 
           {people.map((person) => (
-            <span key={person.id}>{person.name}'s {getSignAttribute(person.sign)}</span>
+            <span key={person.id}>{person.name}&apos;s {getSignAttribute(person.sign)}</span>
           ))}
           , your joint birthday will be unforgettable.
         </p>
