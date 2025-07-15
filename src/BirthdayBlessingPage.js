@@ -57,6 +57,7 @@ function BirthdayBlessingPage() {
     <div className="min-h-screen bg-gradient-to-b from-blue-900 to-black text-white py-6 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="max-w-3xl mx-auto space-y-8">
         {/* Hero Section */}
+        <div className="flex flex-col items-center space-y-4">
           <div className="w-32 h-32 rounded-full mx-auto shadow-md overflow-hidden relative">
             <Image
               src={aiPhotoUrl || "/images/default_birthday.jpg"}
@@ -67,7 +68,6 @@ function BirthdayBlessingPage() {
               priority
             />
           </div>
-          />
           <h1 className="text-3xl font-bold">{`🎉 ${recipient.name}'s ${recipient.age}th Birthday`}</h1>
           <p className="text-white/80">{birthdayMessage}</p>
         </div>
