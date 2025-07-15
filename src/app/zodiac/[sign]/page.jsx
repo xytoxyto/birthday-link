@@ -49,6 +49,19 @@ export default function ZodiacSignPage() {
         { name: 'Adventure Quest', description: 'Outdoor adventure with challenges and rewards' },
         { name: 'Fire & Spice', description: 'Bold colors, spicy food, and energetic music' },
         { name: 'Championship', description: 'Sports-themed celebration with friendly competitions' }
+      ],
+      traditions: [
+        { 
+          country: 'Japan', 
+          flag: '🇯🇵', 
+          description: 'Red is considered lucky for Aries in Japan. Birthday celebrations often include red bean mochi and prosperity symbols.' 
+        },
+        { 
+          country: 'Mexico', 
+          flag: '🇲🇽', 
+          description: 'Aries birthdays in Mexico might include a piñata filled with spicy candy to represent the fire sign\'s bold nature.' 
+        },
+        // other countries...
       ]
     },
     // Other signs would be defined here
