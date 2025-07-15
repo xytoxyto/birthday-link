@@ -3,10 +3,34 @@
 import { useParams } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
 import BirthdayChat from '@/components/BirthdayChat';
-import Confetti from 'react-confetti';
-import { useWindowSize } from 'react-use';
+
+// First install the missing dependencies:
+// npm install react-confetti react-use
 
 export default function EventChatPage() {
+  // Import these dynamically to avoid build errors
+  const [Confetti, setConfetti] = useState(null);
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+  
+  // Load modules dynamically
+  useEffect(() => {
+    Promise.all([
+      import('react-confetti').then(module => setConfetti(() => module.default)),
+      import('react-use').then(module => {
+        // Set up window size tracking
+        const updateSize = () => {
+          setWindowSize({
+            width: window.innerWidth,
+            height: window.innerHeight
+          });
+        };
+        updateSize();
+        window.addEventListener('resize', updateSize);
+        return () => window.removeEventListener('resize', updateSize);
+      })
+    ]);
+  }, []);
+
   const params = useParams();
   const eventId = params.id;
   const [messages, setMessages] = useState([]);
@@ -18,8 +42,6 @@ export default function EventChatPage() {
   const [usersTyping, setUsersTyping] = useState([]);
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
-
-  const { width, height } = useWindowSize();
 
   const giftIdeas = [
     { name: "Birthday Cake", emoji: "🎂", price: "$25" },
@@ -258,7 +280,14 @@ export default function EventChatPage() {
           <ChatMessage message={message} isOwnMessage={message.isOwnMessage} />
         </div>
       ))}
-      {showConfetti && <Confetti width={width} height={height} recycle={false} onConfettiComplete={() => setShowConfetti(false)} />}
+      {showConfetti && Confetti && (
+        <Confetti
+          width={windowSize.width}
+          height={windowSize.height}
+          recycle={false}
+          onConfettiComplete={() => setShowConfetti(false)}
+        />
+      )}
     </>
   );
 }
