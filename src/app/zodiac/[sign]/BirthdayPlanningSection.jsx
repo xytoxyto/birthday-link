@@ -1,6 +1,10 @@
 "use client";
 
 export default function BirthdayPlanningSection({ currentSign }) {
+  if (!currentSign) {
+    return null; // Or a loading state or error message
+  }
+  
   return (
     <div className="bg-white/10 backdrop-blur rounded-lg p-4 shadow-lg text-white mt-6">
       <h3 className="text-xl font-semibold mb-2">Co-Celebration Ideas</h3>
@@ -10,9 +14,9 @@ export default function BirthdayPlanningSection({ currentSign }) {
       
       <div className="space-y-3">
         <div className="bg-white/10 p-3 rounded-lg">
-          <div className="flex items-center">
-            <div className="bg-yellow-400 text-blue-900 h-8 w-8 rounded-full flex items-center justify-center font-bold mr-3">1</div>
-            <h4 className="font-bold">Joint Adventure Package</h4>
+          <p className="mt-2 text-sm text-white/80 pl-11">
+            Pool resources with your birthday twins for an epic {currentSign.element?.toLowerCase() || 'special'}-themed adventure that satisfies your {currentSign.name} spirit.
+          </p>
           </div>
           <p className="mt-2 text-sm text-white/80 pl-11">
             Pool resources with your birthday twins for an epic {currentSign.element.toLowerCase()}-themed adventure that satisfies your {currentSign.name} spirit.
