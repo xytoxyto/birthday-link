@@ -1,4 +1,10 @@
 import EventDetail from '@/components/EventDetail';
+import { Metadata } from 'next';
+
+export const metadata = {
+  title: 'Galaxy Rooftop Event',
+  description: 'Join us for an unforgettable night at the Galaxy Rooftop with stunning views, amazing music, and great company.',
+};
 
 export default function GalaxyRooftopEventPage() {
   const eventData = {
