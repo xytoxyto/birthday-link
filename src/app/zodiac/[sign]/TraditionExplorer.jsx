@@ -27,30 +27,31 @@ TraditionCard.propTypes = {
 };
 
 export default function TraditionExplorer({ currentSign }) {
+  // Dynamic traditions based on zodiac sign characteristics
   const traditions = [
     {
       country: "Japan",
       flag: "🇯🇵",
-      description: `Red is considered lucky for ${currentSign.name} in Japan. Birthday celebrations often include 
-                    red bean mochi and prosperity symbols.`
+      description: `In Japan, ${currentSign.name} birthdays are celebrated with special customs that honor your zodiac traits. 
+                    Birthday celebrations often include traditional mochi and prosperity symbols.`
     },
     {
       country: "Mexico",
       flag: "🇲🇽",
-      description: `${currentSign.name} birthdays in Mexico might include a piñata filled with spicy candy to 
-                    represent the fire sign's bold nature.`
+      description: `${currentSign.name} birthdays in Mexico incorporate colorful celebrations with piñatas and traditional foods 
+                    that reflect the unique energy of your zodiac sign.`
     },
     {
       country: "India",
       flag: "🇮🇳",
-      description: `${currentSign.name} birthdays may incorporate red sandal paste blessings and energetic 
-                    Bhangra dancing to channel Mars energy.`
+      description: `${currentSign.name} birthdays in India may include special blessings and ceremonies designed to enhance 
+                    the natural qualities associated with your zodiac sign.`
     },
     {
       country: "Brazil",
       flag: "🇧🇷",
-      description: `Brazilian ${currentSign.name} celebrations often include competitive capoeira displays 
-                    and spicy feijoada to honor the zodiac's passionate nature.`
+      description: `Brazilian ${currentSign.name} celebrations blend traditional music and food with customs that 
+                    celebrate the distinctive character of your zodiac sign.`
     }
   ];
 
