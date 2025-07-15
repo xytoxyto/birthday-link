@@ -54,8 +54,11 @@ export default function BirthChartCompatibility() {
       <div className="mt-3">
         <p className="text-sm text-white/80">
           Your group has excellent celebration energy! 
-          {people.map((person) => (
-            <span key={person.id}>{person.name}&apos;s {getSignAttribute(person.sign)}</span>
+          {people.map((person, index) => (
+            <span key={person.id}>
+              {index > 0 && (index === people.length - 1 ? ' and ' : ', ')}
+              {person.name}&apos;s {getSignAttribute(person.sign)}
+            </span>
           ))}
           , your joint birthday will be unforgettable.
         </p>
