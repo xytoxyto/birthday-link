@@ -1,3 +1,5 @@
+import TierBadge from './TierBadge';
+
 export default function AdminPanel() {
   return (
     <section className="bg-gradient-to-b from-blue-900 to-black min-h-screen py-12 px-4">
@@ -26,7 +28,7 @@ export default function AdminPanel() {
                 <tr className="border-t border-white/20">
                   <td className="px-4 py-2">Jane Doe</td>
                   <td className="px-4 py-2">jane@example.com</td>
-                  <td className="px-4 py-2">Galaxy</td>
+                  <td className="px-4 py-2"><TierBadge tier="Galaxy" /></td>
                   <td className="px-4 py-2">
                     <button className="bg-yellow-400 text-blue-900 px-3 py-1 rounded-full shadow hover:bg-yellow-300 transition">
                       Edit

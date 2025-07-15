@@ -1,3 +1,5 @@
+import TierBadge from './TierBadge';
+
 export default function DashboardEvents() {
   return (
     <section className="bg-gradient-to-b from-blue-900 to-purple-900 py-12 px-4">
@@ -12,9 +14,7 @@ export default function DashboardEvents() {
         <div className="rounded-lg bg-white/10 backdrop-blur p-6 shadow-lg text-white space-y-4">
           <h2 className="text-xl font-bold">Galaxy Rooftop Party</h2>
           <p className="text-sm">September 15, 2024</p>
-          <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-blue-700">
-            Galaxy
-          </span>
+          <TierBadge tier="Galaxy" />
           <button className="mt-4 w-full bg-yellow-400 text-blue-900 font-semibold px-4 py-2 rounded-full shadow hover:bg-yellow-300 transition">
             RSVP
           </button>

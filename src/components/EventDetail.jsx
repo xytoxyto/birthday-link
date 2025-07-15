@@ -1,3 +1,5 @@
+import TierBadge from './TierBadge';
+
 export default function EventDetail() {
   return (
     <section className="bg-gradient-to-b from-blue-900 to-black min-h-screen">
@@ -7,9 +9,7 @@ export default function EventDetail() {
         <div className="bg-white/10 backdrop-blur rounded-lg p-6 shadow-lg text-white space-y-4">
           <h1 className="text-3xl font-bold mb-2">🎉 Galaxy Rooftop Party</h1>
           <p className="text-sm text-white/80">Hosted by Birthday Link</p>
-          <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-blue-700">
-            Galaxy Tier
-          </span>
+          <TierBadge tier="Galaxy" />
           <p className="text-lg text-white/80">
             Celebrate under the stars with live DJs, exclusive rooftop access, group matching, and VIP service.
           </p>

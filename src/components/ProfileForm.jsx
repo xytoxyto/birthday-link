@@ -1,3 +1,5 @@
+import TierBadge from '@/components/TierBadge';
+
 export default function ProfileForm() {
   return (
     <section className="bg-gradient-to-b from-blue-900 to-black min-h-screen py-12 px-4">
@@ -24,9 +26,7 @@ export default function ProfileForm() {
 
           <div className="flex items-center space-x-2">
             <span className="text-sm">Tier:</span>
-            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-blue-700">
-              Galaxy
-            </span>
+            <TierBadge tier="Galaxy" />
           </div>
 
           <input
