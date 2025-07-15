@@ -70,15 +70,15 @@ export default function BirthChartCompatibility() {
           >
             {['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'].map(sign => (
               <option key={sign} value={sign}>{sign}</option>
-      </div>
-    </div>
-  );
-}         Your group has excellent celebration energy! With Aries leadership, Leo&apos;s flair for drama, 
-          and Gemini&apos;s social skills, your joint birthday will be unforgettable.
-        </p>
-        <button className="w-full bg-yellow-400 text-blue-900 font-semibold px-4 py-2 rounded-full shadow hover:bg-yellow-300 transition">
-          Generate Full Group Reading
-        </button>
+            ))}
+          </select>
+          <button
+            onClick={addPerson}
+            className="bg-yellow-400 text-blue-900 px-3 py-1 rounded font-medium"
+          >
+            Add
+          </button>
+        </div>
       </div>
     </div>
   );
