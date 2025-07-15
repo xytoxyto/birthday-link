@@ -9,28 +9,30 @@ const eventInfo = {
   imageDimensions: { width: 1200, height: 630 },
 };
 
-export const metadata = {
-  title: eventInfo.fullTitle,
-  description: eventInfo.description,
-  openGraph: {
+export function generateMetadata() {
+  return {
     title: eventInfo.fullTitle,
     description: eventInfo.description,
-    images: [
-      {
-        url: eventInfo.imageUrl,
-        width: eventInfo.imageDimensions.width,
-        height: eventInfo.imageDimensions.height,
-        alt: eventInfo.fullTitle,
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: eventInfo.fullTitle,
-    description: eventInfo.description,
-    images: [eventInfo.imageUrl],
-  },
-};
+    openGraph: {
+      title: eventInfo.fullTitle,
+      description: eventInfo.description,
+      images: [
+        {
+          url: eventInfo.imageUrl,
+          width: eventInfo.imageDimensions.width,
+          height: eventInfo.imageDimensions.height,
+          alt: eventInfo.fullTitle,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: eventInfo.fullTitle,
+      description: eventInfo.description,
+      images: [eventInfo.imageUrl],
+    },
+  };
+}
 
 /**
  * Galaxy Rooftop Event Page
