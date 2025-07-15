@@ -71,7 +71,7 @@ export default function NavBar() {
               <Link
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="block py-2 text-white visited:text-white no-underline hover:bg-blue-700 rounded"
+                className="block py-2 text-white visited:text-white no-underline hover:bg-blue-700 rounded px-4"
               >
                 {l.label}
               </Link>
@@ -80,7 +80,7 @@ export default function NavBar() {
           <li className="pt-2 font-semibold">
             <button
               onClick={() => setTiersOpen(!tiersOpen)}
-              className="appearance-none flex items-center w-full text-left py-2 bg-blue-900 text-white no-underline hover:bg-blue-700 rounded"
+              className="appearance-none flex items-center w-full text-left py-2 bg-blue-900 text-white no-underline hover:bg-blue-700 rounded px-4"
             >
               Tiers <span className="ml-1">{tiersOpen ? "▴" : "▾"}</span>
             </button>
@@ -91,7 +91,7 @@ export default function NavBar() {
                     <Link
                       href={t.href}
                       onClick={() => setOpen(false)}
-                      className="block py-1 text-white visited:text-white no-underline hover:bg-blue-700 rounded"
+                      className="block py-1 text-white visited:text-white no-underline hover:bg-blue-700 rounded px-4"
                     >
                       {t.label}
                     </Link>
