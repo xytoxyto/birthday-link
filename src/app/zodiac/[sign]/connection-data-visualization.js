@@ -42,7 +42,7 @@ export default function BirthdayConnectionMap() {
       initialRenderRef.current = false;
       fetchUserData();
     }
-  }, [currentSign.name, fetchUserData]);
+  }, [currentSign.name, fetchUserData, userData]);
 
   if (!userData) {
     return (
