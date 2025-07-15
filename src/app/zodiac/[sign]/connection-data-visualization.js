@@ -68,7 +68,7 @@ export default function BirthdayConnectionMap() {
             </div>
           </div>
         </div>
-        {userData.connections.map((connection, index) => {
+        {userData?.connections?.map((connection, index) => {
           // Calculate position based on index
           const positions = [
             { bottom: '33%', right: '25%' },
