@@ -44,6 +44,7 @@ export default function EventChatPage() {
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [sortOption, setSortOption] = useState('default');
   const [showCompareModal, setShowCompareModal] = useState(false);
+  const [showMapView, setShowMapView] = useState(false);
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
 
@@ -360,21 +361,67 @@ export default function EventChatPage() {
           <option value="capacity-desc">Capacity (High to Low)</option>
         </select>
       </div>
-      {/* Venue mapping - assuming filteredVenues is available in this scope */}
-      {getSortedVenues().map((venue, index) => (
-        <VenueCard
-          key={venue.id}
-          image={venue.image}
-          name={venue.name}
-          description={venue.description}
-          tier={venue.tier}
-          availability={venue.availability}
-          tags={venue.tags}
-          index={index}
-          onToggleCompare={() => handleToggleCompare(venue.id)}
-          isSelected={selectedVenues.includes(venue.id)}
-        />
-      ))}
+      {/* Map toggle button */}
+      <div className="flex justify-center mt-4">
+        <button
+          onClick={() => setShowMapView(!showMapView)}
+          className="bg-white/10 text-white px-4 py-2 rounded-full hover:bg-white/20 transition flex items-center"
+        >
+          <span className="mr-2">{showMapView ? 'Grid View' : 'Map View'}</span>
+          <span>{showMapView ? '📷' : '🗺️'}</span>
+        </button>
+      </div>
+      {/* Venue mapping */}
+      {showMapView ? (
+        <div className="bg-white/5 rounded-lg overflow-hidden h-[70vh] mt-6 relative">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-center text-white/60">
+              <p className="text-xl mb-2">Interactive Map</p>
+              <p>In a real app, this would be a map showing venue locations</p>
+            </div>
+          </div>
+          {/* This is where you'd integrate a map like Google Maps or Mapbox */}
+          {filteredVenues.map((venue, index) => (
+            <div 
+              key={venue.id}
+              className="absolute bg-white/90 rounded-lg p-2 shadow-lg text-blue-900 cursor-pointer hover:bg-yellow-400 transition"
+              style={{ 
+                top: `${20 + (index * 10)}%`, 
+                left: `${15 + (index * 12)}%`,
+                transform: 'translate(-50%, -50%)'
+              }}
+              onClick={() => {
+                const venueElement = document.getElementById(`venue-${venue.id}`);
+                setShowMapView(false);
+                setTimeout(() => {
+                  venueElement?.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+              }}
+            >
+              <p className="font-bold">{venue.name}</p>
+              <p className="text-xs">{venue.category}</p>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="space-y-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:space-y-0">
+          {getSortedVenues().map((venue, index) => (
+            <div id={`venue-${venue.id}`} key={venue.id}>
+              <VenueCard
+                index={index}
+                image={venue.image}
+                name={venue.name}
+                description={venue.description}
+                tier={venue.tier}
+                availability={venue.availability}
+                tags={venue.tags}
+                onToggleCompare={() => toggleCompare(venue.id)}
+                isSelected={compareList.includes(venue.id)}
+              />
+            </div>
+          ))}
+        </div>
+      )}
       {/* Compare button */}
       <div className="fixed bottom-4 right-4">
         <button 
