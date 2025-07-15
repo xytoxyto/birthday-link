@@ -355,3 +355,67 @@ function ChatMessage({ message, isOwnMessage }) {
     </div>
   );
 }
+
+// Add to VenueCard component
+function VenueCard({ image, name, description, tier, availability, tags, index, onToggleCompare, isSelected }) {
+  const [showDetails, setShowDetails] = useState(false);
+  const [showVirtualTour, setShowVirtualTour] = useState(false);
+  
+  return (
+    <div className="bg-white rounded-lg shadow-md p-4 mb-4">
+      <div className="flex">
+        <div className="flex-shrink-0">
+          <img src={image} alt={name} className="w-16 h-16 rounded-full" />
+        </div>
+        <div className="ml-4 flex-1">
+          <div className="flex justify-between">
+            <h3 className="text-lg font-bold">{name}</h3>
+            <button 
+              onClick={onToggleCompare}
+              className={`text-xs rounded-full px-3 py-1 ${isSelected ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-900'}`}
+            >
+              {isSelected ? 'Remove from Compare' : 'Compare'}
+            </button>
+          </div>
+          <p className="text-sm text-gray-700 mt-1">{description}</p>
+          <div className="flex justify-between mt-2">
+            <button 
+              onClick={() => setShowVirtualTour(true)}
+              className="text-yellow-400 text-sm underline"
+            >
+              Virtual Tour
+            </button>
+            <button
+              onClick={() => setShowDetails(true)}
+              className="text-yellow-400 text-sm underline"
+            >
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      {/* Modal for virtual tour */}
+      {showVirtualTour && (
+        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
+          <div className="bg-blue-900/90 backdrop-blur-lg rounded-lg max-w-4xl w-full h-[80vh] shadow-2xl">
+            <div className="relative h-full">
+              <iframe 
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                title="Virtual Tour"
+                className="w-full h-full rounded-lg"
+                allowFullScreen
+              ></iframe>
+              <button 
+                onClick={() => setShowVirtualTour(false)}
+                className="absolute top-2 right-2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center"
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
