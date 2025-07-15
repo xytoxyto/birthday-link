@@ -56,7 +56,7 @@ export default function EventsCreatePage() {
                 name="eventDate"
                 value={formData.eventDate}
                 onChange={handleChange}
-                className="w-full px-4 py-2 rounded-lg bg-white/20 border border-purple-300 text-white"
+                className="w-full px-4 py-2 rounded-lg bg-white/20 border border-purple-300 text-white [color-scheme:dark]"
                 required
               />
             </div>
