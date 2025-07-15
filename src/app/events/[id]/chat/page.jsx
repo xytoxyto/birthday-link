@@ -554,7 +554,7 @@ function ChatMessage({ message, isOwnMessage }) {
   );
 }
 
-function VenueCard({ image, name, description, tier, availability, tags, index, onToggleCompare, isSelected, isFeatured, isPopular }) {
+function VenueCard({ image, name, description, onToggleCompare, isSelected, isFeatured, isPopular }) {
   const [showVirtualTour, setShowVirtualTour] = useState(false);
 
   return (
@@ -677,6 +677,9 @@ const filteredVenues = [
     isPopular: true
   }
 ];
+
+// Create a reference to venues using filteredVenues for the comparison modal
+const venues = filteredVenues;
 
 const usersTyping = ["John", "Alice"];
 const compareList = [1];
