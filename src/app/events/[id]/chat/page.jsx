@@ -17,7 +17,7 @@ export default function EventChatPage() {
   useEffect(() => {
     Promise.all([
       import('react-confetti').then(module => setConfetti(() => module.default)),
-      import('react-use').then(module => {
+      import('react-use').then(() => {
         // Set up window size tracking
         const updateSize = () => {
           setWindowSize({
@@ -38,14 +38,13 @@ export default function EventChatPage() {
   const [showGiftIdeas, setShowGiftIdeas] = useState(false);
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0 });
   const [isRecording, setIsRecording] = useState(false);
-  const [audioURL, setAudioURL] = useState('');
   const [showConfetti, setShowConfetti] = useState(false);
-  const [usersTyping, setUsersTyping] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [sortOption, setSortOption] = useState('default');
   const [showCompareModal, setShowCompareModal] = useState(false);
   const [showMapView, setShowMapView] = useState(false);
+  const [audioURL, setAudioURL] = useState(null);
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
 
@@ -114,13 +113,13 @@ export default function EventChatPage() {
       mediaRecorder.ondataavailable = (e) => {
         audioChunksRef.current.push(e.data);
       };
-      
       mediaRecorder.onstop = () => {
         const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/mp3' });
         const audioUrl = URL.createObjectURL(audioBlob);
-        setAudioURL(audioUrl);
+        setAudioURL(audioUrl); // Corrected line
         
         // In a real app, you'd upload this and send a link
+        setMessages([
         setMessages([
           ...messages,
           {
@@ -557,13 +556,14 @@ function ChatMessage({ message, isOwnMessage }) {
   );
 }
 
-// Add to VenueCard component
 function VenueCard({ image, name, description, tier, availability, tags, index, onToggleCompare, isSelected, isFeatured, isPopular }) {
+  const [showVirtualTour, setShowVirtualTour] = useState(false);
+
   return (
     <motion.div className="relative">
       {/* Add badges */}
       {isFeatured && (
-        <div className="absolute top-2 left-2 z-10 bg-yellow-400 text-blue-900 rounded-full px-3 py-1 text-sm font-bold shadow-lg">
+        <div className="absolute top-2 left-2 z-10 bg-green-500 text-white rounded-full px-3 py-1 text-sm font-bold shadow-lg">
           Featured
         </div>
       )}
@@ -597,7 +597,7 @@ function VenueCard({ image, name, description, tier, availability, tags, index, 
                 Virtual Tour
               </button>
               <button
-                onClick={() => setShowDetails(true)}
+                onClick={() => setShowVirtualTour(true)}
                 className="text-yellow-400 text-sm underline"
               >
                 View Details
@@ -630,6 +630,7 @@ function VenueCard({ image, name, description, tier, availability, tags, index, 
       </div>
     </motion.div>
   );
+}
 }
 
 // Update venue data to include these properties
