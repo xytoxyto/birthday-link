@@ -33,7 +33,7 @@ export default function BirthdayConnectionMap() {
       }, 1000);
     });
     setUserData(data);
-  }, []); // Empty dependency array is correct here
+  }, [currentSign]); // Include currentSign as a dependency
 
   // Fetch data on component mount
   useEffect(() => {
