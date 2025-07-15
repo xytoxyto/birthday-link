@@ -11,7 +11,9 @@ export default function BirthdayConnectionMap() {
   // Update currentSign when params.sign changes
   useEffect(() => {
     if (params.sign) {
-      setCurrentSign({ name: params.sign });
+      // Capitalize first letter of sign from URL parameter
+      const formattedSign = params.sign.charAt(0).toUpperCase() + params.sign.slice(1).toLowerCase();
+      setCurrentSign({ name: formattedSign });
     }
   }, [params.sign]);
 
