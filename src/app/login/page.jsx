@@ -6,12 +6,22 @@ import { useState } from 'react';
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   
   const handleSubmit = (e) => {
     e.preventDefault();
+    setError(''); // Clear previous errors
     // Add your login logic here
-    console.log('Login attempt with:', email, password);
-  };
+    try {
+      console.log('Login attempt with:', email, password);
+      // Actual authentication logic would go here
+      <div className="bg-blue-800 p-8 rounded-xl shadow-xl max-w-md w-full">
+        <h1 className="text-2xl text-white font-bold mb-2">Login</h1>
+        <p className="text-white mb-4">Log in to access your Birthday Link account</p>
+        
+        {error && <div className="bg-red-500 text-white p-3 rounded-lg mb-4">{error}</div>}
+        
+        <form onSubmit={handleSubmit} className="space-y-4">
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-blue-900 p-4">
