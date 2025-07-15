@@ -3,6 +3,18 @@ import EventDetail from '@/components/EventDetail';
 export const metadata = {
   title: 'Galaxy Rooftop Event',
   description: 'Join us for an unforgettable night at the Galaxy Rooftop with stunning views, amazing music, and great company.',
+  openGraph: {
+    title: 'Galaxy Rooftop Event',
+    description: 'Join us for an unforgettable night at the Galaxy Rooftop with stunning views, amazing music, and great company.',
+    images: [
+      {
+        url: '/images/galaxy-rooftop.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Galaxy Rooftop Event',
+      },
+    ],
+  },
 };
 
 /**
