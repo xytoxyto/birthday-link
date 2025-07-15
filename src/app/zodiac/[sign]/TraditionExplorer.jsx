@@ -2,12 +2,21 @@ import PropTypes from 'prop-types';
 
 // Tradition card component for better organization and reusability
 function TraditionCard({ country, flag, description }) {
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      // Add your click action here
+    }
+  };
+
   return (
     <div 
       className="bg-white/10 rounded-lg p-3 hover:bg-white/20 transition cursor-pointer"
       role="button"
       tabIndex={0}
       aria-label={`Birthday tradition in ${country}`}
+      onKeyDown={handleKeyDown}
+      onClick={() => {/* Add your click action here */}}
     >
       <div className="flex items-start">
         <span className="text-2xl mr-3" aria-hidden="true">{flag}</span>
