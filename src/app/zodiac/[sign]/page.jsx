@@ -8,7 +8,7 @@ import TierBadge from '@/components/TierBadge';
 export default function ZodiacSignPage() {
   const params = useParams();
   const sign = params.sign;
-  const [userTier, setUserTier] = useState('cosmic'); // In a real app, get from context
+  const [userTier] = useState('cosmic'); // In a real app, get from context
   
   // Sign-specific data
   const signData = {
@@ -19,12 +19,12 @@ export default function ZodiacSignPage() {
       element: 'Fire',
       ruling: 'Mars',
       gradient: 'from-red-800 to-orange-600',
-      about: 'Aries is the first sign of the zodiac, and that's fitting because these brave rams are always ready to take on a challenge. They're known for their boldness, passion, and initiative.',
+      about: 'Aries is the first sign of the zodiac, and that\'s fitting because these brave rams are always ready to take on a challenge. They\'re known for their boldness, passion, and initiative.',
       traits: ['Courageous', 'Determined', 'Passionate', 'Confident', 'Enthusiastic', 'Independent'],
       compatibility: ['Leo', 'Sagittarius', 'Gemini'],
       celebrations: 'Aries birthdays often feature adventurous activities, competitive games, and bold red decorations to match their fiery spirit.',
       gifts: ['Sports equipment', 'Adventure experiences', 'Bold statement pieces', 'Spicy food kits'],
-      detailedReadings: 'As an Aries, your birthday celebrations tend to be energetic and action-packed. You thrive when your special day includes physical activities and friendly competition. Your birth chart reveals that you have a natural leadership quality that shines during celebrations.'
+      detailedReadings: 'As an Aries, your birthday celebrations tend to be energetic and action-packed. You thrive when your special day includes physical activities and friendly competition. Your birth chart reveals that you have a natural leadership quality that shines during celebrations.',
     },
     // Other signs would be defined here
   };
