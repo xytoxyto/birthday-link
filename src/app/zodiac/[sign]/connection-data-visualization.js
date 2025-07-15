@@ -36,7 +36,7 @@ export default function BirthdayConnectionMap() {
   // Fetch data on component mount
   useEffect(() => {
     fetchUserData();
-  }, []); // Remove fetchUserData from dependencies to prevent infinite re-renders
+  }, [fetchUserData]); // Include fetchUserData as a dependency since it's used in the effect
 
   if (!userData) {
     return (
