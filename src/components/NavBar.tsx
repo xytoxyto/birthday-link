@@ -65,7 +65,7 @@ export default function NavBar() {
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ${open ? "max-h-screen" : "max-h-0"}`}
       >
-        <ul className="flex flex-col space-y-2 p-4 bg-blue-800 rounded-lg shadow-lg list-none">
+        <ul className="flex flex-col space-y-2 p-4 bg-blue-900 rounded-lg shadow-lg list-none">
           {links.map((l) => (
             <li key={l.href}>
               <Link
@@ -80,12 +80,12 @@ export default function NavBar() {
           <li className="pt-2 font-semibold">
             <button
               onClick={() => setTiersOpen(!tiersOpen)}
-              className="flex items-center w-full text-left py-2 text-white visited:text-white no-underline hover:bg-blue-700 rounded"
+              className="appearance-none flex items-center w-full text-left py-2 bg-blue-900 text-white no-underline hover:bg-blue-700 rounded"
             >
               Tiers <span className="ml-1">{tiersOpen ? "▴" : "▾"}</span>
             </button>
             {tiersOpen && (
-              <ul className="pl-4 space-y-1 mt-1">
+              <ul className="pl-4 list-none space-y-1 mt-1">
                 {tierLinks.map((t) => (
                   <li key={t.href}>
                     <Link
