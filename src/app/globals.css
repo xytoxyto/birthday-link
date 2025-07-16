@@ -32,87 +32,132 @@
 }
 
 /* Utility classes for brand gradients and effects */
+
+/* Enhanced brand gradients and effects */
 .brand-gradient {
-  background-image: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  background-image: linear-gradient(120deg, var(--primary) 0%, var(--accent) 50%, var(--primary-light) 100%);
+  box-shadow: 0 8px 32px 0 rgba(99, 102, 241, 0.18), 0 1.5px 8px 0 rgba(245, 158, 11, 0.10);
+  border-radius: var(--border-radius);
+  transition: box-shadow 0.3s cubic-bezier(0.4,0,0.2,1), background 0.3s cubic-bezier(0.4,0,0.2,1);
 }
 
 .brand-glow {
-  box-shadow: 0 4px 32px 0 rgba(99, 102, 241, 0.15);
+  box-shadow: 0 0 24px 4px var(--primary-light), 0 2px 16px 0 rgba(99, 102, 241, 0.12);
+  animation: glowPulse 2.5s infinite alternate;
+}
+
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 24px 4px var(--primary-light), 0 2px 16px 0 rgba(99, 102, 241, 0.12); }
+  100% { box-shadow: 0 0 36px 8px var(--primary), 0 4px 24px 0 rgba(99, 102, 241, 0.18); }
+}
 
 .fancy-border {
   border-radius: var(--border-radius);
-  border: 2px solid var(--primary-light);
+  border: 2.5px solid var(--primary-light);
+  background: linear-gradient(120deg, var(--primary-light) 0%, transparent 100%);
+  box-shadow: 0 2px 12px 0 rgba(99, 102, 241, 0.10);
 }
 
 /* Base layer for global element styles */
+
 html {
   font-family: var(--font-sans);
   scroll-behavior: smooth;
+  background: var(--background);
 }
 body {
-  background-color: var(--background);
+  background: linear-gradient(120deg, var(--background) 0%, #e0e7ff 100%);
   color: var(--foreground);
-  line-height: 1.6;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
 }
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  line-height: 1.2;
+  font-weight: 800;
+  line-height: 1.15;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
 }
 a {
   color: var(--primary);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.2s, text-shadow 0.2s;
+  text-shadow: 0 1px 8px rgba(99,102,241,0.08);
+  font-weight: 500;
 }
 a:hover {
-  color: var(--primary-light);
+  color: var(--accent);
+  text-shadow: 0 2px 16px rgba(245,158,11,0.18);
 }
 
 /* Custom utility classes */
+
+/* Enhanced container and button styles */
 .container {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   margin-left: auto;
   margin-right: auto;
-  max-width: 80rem;
+  max-width: 90rem;
+  width: 100%;
 }
+
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  font-weight: 500;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.65rem;
+  padding-bottom: 0.65rem;
+  font-weight: 600;
   border-radius: var(--border-radius);
-  transition-property: background-color, color, border-color;
-  transition-duration: 150ms;
-  background-color: var(--primary);
+  transition-property: background-color, color, border-color, box-shadow, transform;
+  transition-duration: 180ms;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
   color: #fff;
+  box-shadow: 0 2px 12px 0 rgba(99, 102, 241, 0.10);
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.btn:active {
+  transform: scale(0.97);
 }
 .btn-primary {
-  background-color: var(--primary);
+  background: linear-gradient(90deg, var(--primary), var(--accent));
   color: #fff;
+  box-shadow: 0 2px 12px 0 rgba(99, 102, 241, 0.13);
 }
 .btn-primary:hover {
-  background-color: var(--primary-light);
+  background: linear-gradient(90deg, var(--accent), var(--primary-light));
+  color: #fff;
+  box-shadow: 0 4px 24px 0 rgba(245, 158, 11, 0.18);
 }
 .btn-secondary {
-  background-color: #e5e7eb;
+  background: #e5e7eb;
   color: var(--foreground);
+  box-shadow: 0 1px 6px 0 rgba(24,24,27,0.06);
 }
 .btn-secondary:hover {
-  background-color: #d1d5db;
+  background: #d1d5db;
+  color: var(--primary);
 }
 :root.dark .btn-secondary {
-  background-color: #374151;
+  background: #374151;
   color: var(--foreground);
 }
 :root.dark .btn-secondary:hover {
-  background-color: #4b5563;
+  background: #4b5563;
+  color: var(--primary-light);
 }
