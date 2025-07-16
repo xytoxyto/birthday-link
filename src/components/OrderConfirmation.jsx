@@ -14,6 +14,8 @@ export default function OrderConfirmation({ tier, orderNumber }) {
         return 'bg-yellow-400 text-gray-900 hover:bg-yellow-300';
     }
   };
+
+  return (
     <div className="bg-white/30 backdrop-blur-lg rounded-xl shadow-xl p-8 text-foreground text-center space-y-8 border-2 border-primary/10 brand-glow">
       <div className="text-5xl">🎉</div>
       <h1 className="text-2xl font-extrabold drop-shadow">Thank You For Your Purchase!</h1>

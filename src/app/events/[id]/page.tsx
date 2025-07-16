@@ -1,34 +1,22 @@
-
-
-
+import EventDetailClientStyles from './EventDetailClientStyles';
 import Link from 'next/link';
 import { type Metadata } from 'next';
-
-
 import React from 'react';
 
-type PageProps = {
-  params: { id: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
-};
-
-
-
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { id: string }; searchParams?: { [key: string]: string | string[] | undefined }; }): Promise<Metadata> {
   return {
     title: `Birthday Event: ${params.id} | Birthday Link`,
     description: 'View details for this curated birthday celebration with venue, guest list, and RSVP options.',
   };
 }
 
-
-
-export default function EventDetailPage({ params }: PageProps) {
+export default function EventDetailPage({ params }: { params: { id: string }; searchParams?: { [key: string]: string | string[] | undefined }; }) {
   const { id } = params;
   // In a real app, you would fetch event data here
   // const { data: event, isLoading, error } = useSomeDataFetchingHook(id);
   return (
     <main className="relative min-h-screen flex flex-col bg-gradient-to-br from-blue-950 via-purple-900 to-blue-900 text-white overflow-hidden">
+      <EventDetailClientStyles />
       {/* Animated Confetti Effect */}
       <div className="pointer-events-none absolute inset-0 z-10">
         <svg className="w-full h-full animate-confetti" viewBox="0 0 100 100" fill="none">
@@ -74,30 +62,7 @@ export default function EventDetailPage({ params }: PageProps) {
       </section>
       {/* Subtle animated gradient at the bottom */}
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-pink-400/30 via-purple-500/10 to-transparent animate-pulse-slow z-10" />
-      <style jsx global>{`
-        @keyframes confetti {
-          0% { transform: translateY(0); opacity: 1; }
-          100% { transform: translateY(100vh); opacity: 0; }
-        }
-        .animate-confetti circle {
-          animation: confetti 4s linear infinite;
-        }
-        @keyframes gradient-x {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-        .animate-gradient-x {
-          background-size: 200% 200%;
-          animation: gradient-x 6s ease-in-out infinite;
-        }
-        .animate-pulse-slow {
-          animation: pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.7; }
-        }
-      `}</style>
+
     </main>
   );
 }
