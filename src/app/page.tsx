@@ -1,3 +1,5 @@
+import { ExperienceCard } from "../components/ExperienceCard";
+
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-900 via-blue-800 to-black text-white">
@@ -7,6 +9,41 @@ export default function HomePage() {
         <p className="max-w-2xl mx-auto text-lg md:text-xl opacity-80">
           Turn your birthday into a shared experience with people who match your date. Choose your tier. Celebrate in style.
         </p>
+      </section>
+
+      {/* Curated Experiences Section */}
+      <section className="bg-gradient-to-b from-blue-900 to-black min-h-screen py-12 px-4">
+        <div className="max-w-3xl mx-auto space-y-6">
+          {/* Header */}
+          <div className="text-center text-white mb-8">
+            <h1 className="text-4xl font-bold mb-2">✨ Curated Experiences</h1>
+            <p className="text-white/80">
+              Hand-picked artists, chefs, and venues to make your celebration unforgettable.
+            </p>
+          </div>
+
+          {/* Experience Grid */}
+          <div className="space-y-6 md:grid md:grid-cols-2 md:gap-6">
+            <ExperienceCard
+              image="/images/dj-smooth.jpg"
+              name="DJ Smooth"
+              description="Bringing the best beats for your party."
+              tier="Galaxy"
+            />
+            <ExperienceCard
+              image="/images/chef-elite.jpg"
+              name="Chef Gourmet"
+              description="Custom menus for an elevated experience."
+              tier="Elite"
+            />
+            <ExperienceCard
+              image="/images/cosmic-venue.jpg"
+              name="Cosmic Bowling Lounge"
+              description="Neon-lit fun perfect for Cosmic tier."
+              tier="Cosmic"
+            />
+          </div>
+        </div>
       </section>
 
       {/* Tier Cards */}
