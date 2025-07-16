@@ -1,11 +1,27 @@
 import { ExperienceCard } from "../components/ExperienceCard";
+import Image from "next/image";
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-900 via-blue-800 to-black text-white">
       {/* Hero Section */}
-      <section className="text-center py-20 px-4">
-        <img src="/branding/logo.svg" alt="Birthday Link Logo" className="mx-auto mb-6 w-24 h-24 drop-shadow-lg animate-fade-in-up" />
+      <section className="text-center py-16 px-4">
+        <Image
+          src="/branding/logo.svg"
+          alt="Birthday Link Logo"
+          width={96}
+          height={96}
+          className="mx-auto mb-6 w-24 h-24 drop-shadow-lg animate-fade-in-up"
+          priority
+        />
+        <Image
+          src="/branding/logo.svg"
+          alt="Birthday Link Logo"
+          width={96}
+          height={96}
+          className="mx-auto mb-6 w-24 h-24 drop-shadow-lg animate-fade-in-up"
+          priority
+        />
         <h1 className="text-5xl md:text-7xl font-bold mb-4">Never Celebrate Alone Again</h1>
         <p className="max-w-2xl mx-auto text-lg md:text-xl opacity-80">
           Turn your birthday into a shared experience with people who match your date. Choose your tier. Celebrate in style.
