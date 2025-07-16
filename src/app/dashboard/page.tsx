@@ -1,4 +1,6 @@
+
 import Link from 'next/link';
+import BirthdayTimeline from './BirthdayTimeline';
 
 interface Event {
   id: number;
@@ -37,8 +39,9 @@ const tierClasses: Record<Event['tier'], string> = {
 export default function DashboardPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-blue-950 via-purple-900 to-blue-900 text-white flex flex-col">
-      <section className="flex-grow flex items-center justify-center text-center p-4 md:p-8">
-        <div className="max-w-4xl w-full space-y-6">
+      <section className="flex-grow flex flex-col items-center justify-center text-center p-4 md:p-8">
+        <BirthdayTimeline />
+        <div className="max-w-4xl w-full space-y-6 mt-10">
           <h1 className="text-4xl md:text-5xl font-extrabold text-birthday-gold mb-2">
             🎂 Your Birthday Link Dashboard
           </h1>
