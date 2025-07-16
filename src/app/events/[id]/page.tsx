@@ -4,20 +4,24 @@
 import Link from 'next/link';
 import { type Metadata } from 'next';
 
-type EventDetailPageProps = {
+
+import React from 'react';
+
+type PageProps = {
   params: { id: string };
   searchParams?: { [key: string]: string | string[] | undefined };
 };
 
-export async function generateMetadata({ params }: EventDetailPageProps): Promise<Metadata> {
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   return {
     title: `Birthday Event: ${params.id} | Birthday Link`,
     description: 'View details for this curated birthday celebration with venue, guest list, and RSVP options.',
   };
 }
 
-export default function EventDetailPage({ params }: EventDetailPageProps) {
-  // Access the event ID from the URL params
+
+export default function EventDetailPage({ params }: PageProps) {
   const { id } = params;
   // In a real app, you would fetch event data here
   // const { data: event, isLoading, error } = useSomeDataFetchingHook(id);
