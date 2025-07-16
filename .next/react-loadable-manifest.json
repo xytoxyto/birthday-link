@@ -1,4 +1,10 @@
 {
+  "app/admin/AdminDashboardClient.tsx -> ../../components/Admin/AdminDashboard": {
+    "id": 2299,
+    "files": [
+      "static/chunks/299.97be72a8625fc6d2.js"
+    ]
+  },
   "app/events/[id]/chat/page.jsx -> react-confetti": {
     "id": 7948,
     "files": [

@@ -1,5 +1,5 @@
-import dynamic from 'next/dynamic';
-const AdminDashboard = dynamic(() => import('../../components/Admin/AdminDashboard'), { ssr: false });
+
+import AdminDashboardClient from './AdminDashboardClient';
 
 export default function AdminPage() {
   return (
@@ -11,7 +11,7 @@ export default function AdminPage() {
         <p className="text-base md:text-lg text-purple-100 mb-8 text-center">
           Manage users, events, and site content. Use the tools below to moderate and curate amazing shared birthday experiences.
         </p>
-        <AdminDashboard />
+        <AdminDashboardClient />
       </div>
     </main>
   );
