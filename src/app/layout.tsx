@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+        {/* Import Inter font in your CSS or use Next.js font optimization instead of a <link> tag here */}
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </head>
       <body className="flex flex-col min-h-screen font-sans bg-brand-gradient text-foreground brand-glow pb-20 md:pb-0">
