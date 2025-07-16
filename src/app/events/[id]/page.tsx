@@ -8,25 +8,23 @@ import { type Metadata } from 'next';
 import React from 'react';
 
 type PageProps = {
-  params: Promise<{ id: string }>;
-  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
+  params: { id: string };
+  searchParams?: { [key: string]: string | string[] | undefined };
 };
 
 
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const resolvedParams = await params;
   return {
-    title: `Birthday Event: ${resolvedParams.id} | Birthday Link`,
+    title: `Birthday Event: ${params.id} | Birthday Link`,
     description: 'View details for this curated birthday celebration with venue, guest list, and RSVP options.',
   };
 }
 
 
 
-export default async function EventDetailPage({ params }: PageProps) {
-  const resolvedParams = await params;
-  const { id } = resolvedParams;
+export default function EventDetailPage({ params }: PageProps) {
+  const { id } = params;
   // In a real app, you would fetch event data here
   // const { data: event, isLoading, error } = useSomeDataFetchingHook(id);
   return (
