@@ -1,9 +1,9 @@
+
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-// import Link from 'next/link'; // Uncomment if using Next.js routing
 
-function BirthdayBlessingPage() {
-  // Example state hooks for dynamic data
+export default function BirthdayBlessingPage() {
+  // ...existing code...
   const [recipient] = useState({
     name: "Antonio",
     age: 33,
@@ -22,31 +22,20 @@ function BirthdayBlessingPage() {
     { message: "Enjoy the DJ Upgrade!", amount: 100, from: "John" },
   ]);
   const [tierPerks] = useState("Elite and Cosmic contributors get VIP thank-you videos and shoutouts at the event!");
-// Display tier perks in the UI (see Tier Perks Section below)
-// The tierPerks state is used in the Tier Perks Section to show perks info:
-// <p>{tierPerks}</p>
-  // Example: Fetch AI-generated photo (replace with your API logic)
   useEffect(() => {
     async function fetchAiPhoto() {
-      // Replace with your AI image API call
-      setAiPhotoUrl("/images/antonio.jpg"); // fallback or AI-generated
+      setAiPhotoUrl("/images/antonio.jpg");
     }
     fetchAiPhoto();
   }, []);
-
-  // Example: Fetch AI-generated birthday message (replace with your API logic)
   useEffect(() => {
     async function fetchBirthdayMessage() {
-      // Replace with your AI text API call
       setBirthdayMessage(`Wishing you an unforgettable birthday, Antonio! May your rooftop bash be filled with music, laughter, and joy.`);
     }
     fetchBirthdayMessage();
   }, []);
-
-  // Example: Handle contribution form submit
   const handleBlessNow = async (e) => {
     e.preventDefault();
-    // Replace with your API call to process contribution
     setBlessings([
       ...blessings,
       { message: contributionMessage, amount: Number(contributionAmount), from: "You" },
@@ -54,7 +43,6 @@ function BirthdayBlessingPage() {
     setContributionAmount("");
     setContributionMessage("");
   };
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-900 to-black text-white py-6 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="max-w-3xl mx-auto space-y-8">
@@ -73,7 +61,6 @@ function BirthdayBlessingPage() {
           <h1 className="text-3xl font-bold">{`🎉 ${recipient.name}'s ${recipient.age}th Birthday`}</h1>
           <p className="text-white/80">{birthdayMessage}</p>
         </div>
-
         {/* Funding Progress Bar */}
         <div className="bg-white/10 backdrop-blur rounded-lg p-4 shadow-lg text-center space-y-2">
           <p className="text-lg">{`Goal: $${recipient.goal} · Raised: $${recipient.raised}`}</p>
@@ -85,13 +72,11 @@ function BirthdayBlessingPage() {
           </div>
           <p className="text-white/60 text-sm">{`🗓️ ${recipient.daysLeft} days left`}</p>
         </div>
-
         {/* About Section */}
         <div className="bg-white/10 backdrop-blur rounded-lg p-4 shadow-lg space-y-2">
           <h2 className="text-2xl font-bold">About {recipient.name}’s Party</h2>
           <p className="text-white/80">{recipient.story}</p>
         </div>
-
         {/* Contribute Money Form */}
         <form
           className="bg-white/10 backdrop-blur rounded-lg p-4 shadow-lg space-y-4"
@@ -118,7 +103,6 @@ function BirthdayBlessingPage() {
             Bless Now
           </button>
         </form>
-
         {/* Upsell Gifts Store */}
         <div className="bg-white/10 backdrop-blur rounded-lg p-4 shadow-lg space-y-4">
           <h2 className="text-2xl font-bold">🎁 Give a Gift</h2>
@@ -133,7 +117,6 @@ function BirthdayBlessingPage() {
             </div>
           </div>
         </div>
-
         {/* Blessings Wall */}
         <div className="bg-white/10 backdrop-blur rounded-lg p-4 shadow-lg space-y-2">
           <h2 className="text-2xl font-bold">❤️ Blessings Wall</h2>
@@ -147,12 +130,10 @@ function BirthdayBlessingPage() {
             ))}
           </div>
         </div>
-
         {/* Tier Perks Section */}
         <div className="bg-yellow-400/10 backdrop-blur rounded-lg p-4 shadow-lg text-yellow-400 space-y-2">
           <h2 className="text-xl font-bold">⭐️ Tier Perks</h2>
           <p>{tierPerks}</p>
-          {/* <Link href="/tiers/upgrade" className="inline-block bg-yellow-400 text-blue-900 font-semibold px-4 py-2 rounded-full shadow hover:bg-yellow-300 transition">Upgrade Your Blessing</Link> */}
           <a href="/tiers/upgrade" className="inline-block bg-yellow-400 text-blue-900 font-semibold px-4 py-2 rounded-full shadow hover:bg-yellow-300 transition">
             Upgrade Your Blessing
           </a>
@@ -161,5 +142,3 @@ function BirthdayBlessingPage() {
     </div>
   );
 }
-
-export default BirthdayBlessingPage;
