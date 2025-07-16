@@ -20,6 +20,7 @@ export default function NavBar() {
     { href: "/profile", label: "Profile" },
     { href: "/admin", label: "Admin" },
     { href: "/legal", label: "Legal" },
+    { href: "/faq", label: "FAQ" },
     { href: "/contact", label: "Contact" }, // Added Contact link
   ];
 
