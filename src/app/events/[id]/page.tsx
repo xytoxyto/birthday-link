@@ -1,3 +1,5 @@
+
+import Image from 'next/image';
 import EventDetailClientStyles from './EventDetailClientStyles';
 import Link from 'next/link';
 import { type Metadata } from 'next';
@@ -10,7 +12,7 @@ export async function generateMetadata({ params }: { params: { id: string }; sea
   };
 }
 
-export default function EventDetailPage({ params }: { params: { id: string }; searchParams?: { [key: string]: string | string[] | undefined }; }) {
+export default function EventDetailPage({ params }: { params: { id: string }; searchParams?: { [key: string]: string | string[] | undefined } }) {
   const { id } = params;
   // In a real app, you would fetch event data here
   // const { data: event, isLoading, error } = useSomeDataFetchingHook(id);
@@ -31,7 +33,7 @@ export default function EventDetailPage({ params }: { params: { id: string }; se
       {/* Hero Section with background image and gradient overlay */}
       <section className="relative flex-grow flex items-center justify-center text-center p-4 md:p-8">
         <div className="absolute inset-0 z-0">
-          <img src="/zodiac-bg.svg" alt="Birthday background" className="w-full h-full object-cover opacity-30" />
+          <Image src="/zodiac-bg.svg" alt="Birthday background" className="w-full h-full object-cover opacity-30" layout="fill" objectFit="cover" />
           <div className="absolute inset-0 bg-gradient-to-br from-purple-900/80 via-blue-900/60 to-blue-950/80" />
         </div>
         <div className="relative z-20 max-w-2xl bg-white/10 backdrop-blur-2xl rounded-3xl shadow-2xl p-6 md:p-12 border-2 border-birthday-gold/60">

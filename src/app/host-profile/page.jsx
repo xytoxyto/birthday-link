@@ -33,7 +33,6 @@ function HostHeader({ photo, name, birthday, tier }) {
         src={photo}
         alt={name + " profile"}
         className="w-24 h-24 rounded-full object-cover border-4 border-blue-800 shadow-lg mb-4 bg-blue-900"
-        onError={e => { e.target.onerror = null; e.target.src = '/public/file.svg'; }}
       />
       <h1 className="text-2xl font-bold text-white flex items-center gap-2">
         {name} <span role="img" aria-label="cake">🎂</span>
@@ -69,7 +68,6 @@ function PastEventsSection({ events }) {
               src={event.image}
               alt={event.name + ' event'}
               className="w-16 h-16 rounded-lg object-cover border-2 border-blue-800 bg-blue-900"
-              onError={e => { e.target.onerror = null; e.target.src = '/public/file.svg'; }}
             />
             <div className="flex-1 min-w-0">
               <div className="text-white font-medium truncate">{event.name}</div>
@@ -83,7 +81,8 @@ function PastEventsSection({ events }) {
   );
 }
 
-export default function HostProfilePage({ host = defaultHost }) {
+export default function HostProfilePage() {
+  const host = defaultHost;
   return (
     <main className="min-h-screen bg-gradient-to-b from-blue-900 to-black p-4 flex flex-col items-center">
       <HostHeader
