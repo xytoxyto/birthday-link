@@ -3,17 +3,30 @@ import Image from 'next/image';
 import EventDetailClientStyles from './EventDetailClientStyles';
 import Link from 'next/link';
 import { type Metadata } from 'next';
+
+
+type SegmentParams<T extends object = Record<string, unknown>> = T extends Record<string, unknown>
+  ? { [K in keyof T]: T[K] extends string ? string | string[] | undefined : never }
+  : T;
+
+interface PageProps {
+  params?: Promise<SegmentParams>;
+  searchParams?: Promise<Record<string, unknown>>;
+}
 import React from 'react';
 
-export async function generateMetadata({ params }: { params: { id: string }; searchParams?: { [key: string]: string | string[] | undefined }; }): Promise<Metadata> {
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const awaitedParams = params ? await params : { id: '' };
   return {
-    title: `Birthday Event: ${params.id} | Birthday Link`,
+    title: `Birthday Event: ${awaitedParams.id} | Birthday Link`,
     description: 'View details for this curated birthday celebration with venue, guest list, and RSVP options.',
   };
 }
 
-export default function EventDetailPage({ params }: { params: { id: string }; searchParams?: { [key: string]: string | string[] | undefined } }) {
-  const { id } = params;
+export default async function EventDetailPage({ params }: PageProps) {
+  const awaitedParams = params ? await params : { id: '' };
+  const { id } = awaitedParams;
   // In a real app, you would fetch event data here
   // const { data: event, isLoading, error } = useSomeDataFetchingHook(id);
   return (

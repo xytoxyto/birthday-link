@@ -23,6 +23,14 @@
       "namedRegex": "^/checkout/(?<nxtPtier>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/events/[id]",
+      "regex": "^/events/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/events/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
       "page": "/events/[id]/chat",
       "regex": "^/events/([^/]+?)/chat(?:/)?$",
       "routeKeys": {
