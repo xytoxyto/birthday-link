@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Removed Tailwind directives because build process does not support them */
 
 :root {
   --background: #ffffff;
@@ -45,7 +43,7 @@
   }
   
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--background);
     color: var(--foreground);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -61,14 +59,12 @@
   }
   
   a {
-    @apply text-primary transition-colors duration-200;
     color: var(--primary);
     text-decoration: none;
     transition: color 0.2s ease;
   }
   
   a:hover {
-    @apply text-primary-light;
     color: var(--primary-light);
   }
 }
@@ -83,20 +79,44 @@
   }
   
   .btn {
-    @apply inline-flex items-center justify-center px-4 py-2 font-medium rounded-md transition-colors duration-150;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    transition-property: background-color, color, border-color;
+    transition-duration: 150ms;
+    background-color: var(--primary);
+    color: #fff;
   }
-  
+
   .btn-primary {
-    @apply bg-primary text-white;
+    background-color: var(--primary);
+    color: #fff;
   }
   .btn-primary:hover {
-    @apply bg-primary-light;
+    background-color: var(--primary-light);
   }
   
   .btn-secondary {
-    @apply bg-gray-200 text-foreground dark:bg-gray-700 dark:text-foreground;
+    background-color: #e5e7eb;
+    color: var(--foreground);
   }
   .btn-secondary:hover {
-    @apply bg-gray-300 dark:bg-gray-600;
+    background-color: #d1d5db;
+  }
+  :root.dark .btn-secondary {
+    background-color: #374151;
+    color: var(--foreground);
+  }
+  :root.dark .btn-secondary:hover {
+    background-color: #4b5563;
   }
 }
+
+/* Importing global styles */
+@import '../styles/globals.css';
