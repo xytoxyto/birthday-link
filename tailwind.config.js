@@ -6,9 +6,13 @@ const config = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        background: "#123456", // your custom color
+      },
+    },
   },
   plugins: [],
 };
 
-module.exports = config;
+export default config;
