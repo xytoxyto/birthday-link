@@ -3,24 +3,31 @@
 import Image from 'next/image';
 import EventDetailClientStyles from './EventDetailClientStyles';
 import Link from 'next/link';
-import { type Metadata } from 'next';
+
 import React from 'react';
 
 
-interface PageProps {
-  params: { id: string };
-  searchParams?: Record<string, string | string[]>;
-}
 
 
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+
+
+import { Metadata } from 'next';
+
+export async function generateMetadata(
+  { params }: { params: { id: string } }
+): Promise<Metadata> {
   return {
     title: `Birthday Event: ${params.id} | Birthday Link`,
     description: 'View details for this curated birthday celebration with venue, guest list, and RSVP options.',
   };
 }
 
+
+interface PageProps {
+  params: { id: string };
+  searchParams?: Record<string, string | string[]>;
+}
 
 export default function EventDetailPage({ params }: PageProps) {
   const { id } = params;
