@@ -117,9 +117,6 @@
     background-color: #4b5563;
   }
 }
-    background-color: #4b5563;
-  }
-}
 
 /* Importing global styles */
 @import '../styles/globals.css';
