@@ -21,7 +21,6 @@ function MatchCard({ name, date, tier }: MatchCardProps) {
   );
 }
 
-"use client";
 import { useEffect, useState } from "react";
 
 type Match = {
