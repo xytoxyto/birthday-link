@@ -7,10 +7,13 @@ import TierBadge from './TierBadge';
 function ChatMessage({ message, isOwnMessage }) {
   return (
     <div className={`flex ${isOwnMessage ? 'justify-end' : 'justify-start'} mb-2`}>
-      <div className={`${isOwnMessage 
-        ? 'bg-yellow-400 text-blue-900' 
-        : 'bg-white/20 text-white'} 
-        rounded-lg px-4 py-2 shadow max-w-xs`}>
+      <div className={[
+        'rounded-xl px-5 py-3 shadow-lg max-w-xs',
+        isOwnMessage
+          ? 'bg-primary/90 text-white border-2 border-accent/40 brand-glow'
+          : 'bg-white/40 text-foreground border-2 border-primary/10',
+        'backdrop-blur'
+      ].join(' ')}>
         {message.content}
       </div>
     </div>

@@ -9,12 +9,14 @@ export default function DashboardTabs({ activeTab, onChange }) {
   ];
 
   return (
-    <div className="flex bg-white/5 backdrop-blur rounded-lg p-1 mb-8">
+    <div className="flex bg-white/30 backdrop-blur-lg rounded-xl p-2 mb-10 border-2 border-primary/10 brand-glow">
       {tabs.map(tab => (
         <button
           key={tab.id}
-          className={`flex-1 py-2 px-4 rounded-md text-white transition ${
-            activeTab === tab.id ? 'bg-white/20 font-bold' : 'hover:bg-white/10'
+          className={`flex-1 py-3 px-6 rounded-lg text-foreground font-semibold transition text-lg tracking-wide shadow-sm border-2 border-transparent ${
+            activeTab === tab.id
+              ? 'bg-primary/90 text-white border-accent scale-105'
+              : 'hover:bg-primary/10 hover:border-primary-light'
           }`}
           onClick={() => onChange(tab.id)}
         >

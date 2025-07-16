@@ -33,9 +33,8 @@ export default function PaymentForm({ tier, onSubmit }) {
 
   return (
     <div className="bg-white/10 backdrop-blur-md rounded-lg shadow-lg p-6 text-white">
-      <h2 className="text-xl font-bold mb-4">Payment Details</h2>
-      
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <h2 className="text-2xl font-extrabold mb-6 drop-shadow">Payment Details</h2>
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label htmlFor="nameOnCard" className="block text-sm font-medium text-white/80 mb-1">
             Name on Card
@@ -46,7 +45,7 @@ export default function PaymentForm({ tier, onSubmit }) {
             name="nameOnCard"
             value={formData.nameOnCard}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/20 text-white shadow focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            className="w-full rounded-lg border-2 border-primary/20 px-4 py-3 bg-white/60 text-foreground focus:outline-none focus:ring-2 focus:ring-primary-light font-medium shadow-sm"
             required
           />
         </div>

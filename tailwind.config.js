@@ -8,7 +8,27 @@ const config = {
   theme: {
     extend: {
       colors: {
-        background: "#123456", // your custom color
+        background: 'var(--background)',
+        foreground: 'var(--foreground)',
+        primary: 'var(--primary)',
+        'primary-light': 'var(--primary-light)',
+        accent: 'var(--accent)',
+        success: 'var(--success)',
+        error: 'var(--error)',
+      },
+      fontFamily: {
+        sans: ['var(--font-sans)'],
+      },
+      borderRadius: {
+        DEFAULT: 'var(--border-radius)',
+        lg: '1rem',
+        xl: '1.5rem',
+      },
+      boxShadow: {
+        'brand-glow': '0 4px 32px 0 rgba(59, 130, 246, 0.15)',
+      },
+      backgroundImage: {
+        'brand-gradient': 'linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%)',
       },
     },
   },

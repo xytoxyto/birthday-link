@@ -14,30 +14,23 @@ export default function OrderConfirmation({ tier, orderNumber }) {
         return 'bg-yellow-400 text-gray-900 hover:bg-yellow-300';
     }
   };
-
-  return (
-    <div className="bg-white/10 backdrop-blur-md rounded-lg shadow-lg p-6 text-white text-center space-y-6">
+    <div className="bg-white/30 backdrop-blur-lg rounded-xl shadow-xl p-8 text-foreground text-center space-y-8 border-2 border-primary/10 brand-glow">
       <div className="text-5xl">🎉</div>
-      <h1 className="text-2xl font-bold">Thank You For Your Purchase!</h1>
-      
-      <p className="text-white/80">
+      <h1 className="text-2xl font-extrabold drop-shadow">Thank You For Your Purchase!</h1>
+      <p className="text-foreground/80">
         You have successfully subscribed to the
       </p>
-      
       <div className="flex justify-center">
         <TierBadge tier={tier} />
       </div>
-      
       {orderNumber && (
-        <p className="text-white/80 text-sm">
+        <p className="text-foreground/70 text-sm">
           Order Number: {orderNumber}
         </p>
       )}
-      
-      <p className="text-white/80">
+      <p className="text-foreground/80">
         You will receive a confirmation email shortly with all the details.
       </p>
-      
       <Link 
         href="/dashboard"
         className={`inline-block ${getButtonColor()} font-semibold px-6 py-3 rounded-full shadow transition-colors`}

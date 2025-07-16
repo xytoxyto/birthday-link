@@ -28,13 +28,12 @@ export default function NavBar() {
   ];
 
   return (
-    <header className="bg-gradient-to-r from-blue-900 to-blue-700 text-white shadow-lg">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
-        <Link href="/" className="text-xl font-bold bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent">
+    <header className="bg-brand-gradient text-foreground shadow-lg brand-glow sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 backdrop-blur bg-white/10 rounded-b-xl border-b border-primary/20">
+        <Link href="/" className="text-2xl font-extrabold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent tracking-tight drop-shadow">
           Birthday Link
         </Link>
-        
-        {/* Desktop Navigation - Add this section */}
+        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6">
           <nav>
             <ul className="flex space-x-6">
