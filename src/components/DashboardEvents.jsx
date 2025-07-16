@@ -67,16 +67,19 @@ export default function DashboardEvents() {
           </>
         ) : (
           // Show actual events when loaded
-          events.map(event => (
-            <div key={event.id} className="bg-white/10 backdrop-blur rounded-lg p-4 shadow-lg space-y-2">
-              <h3 className="text-xl font-bold text-white">{`🎉 ${event.title}`}</h3>
-              <p className="text-white/80">{`${event.date} · ${event.location}`}</p>
-              <TierBadge tier={event.tier} />
-              <button className="w-full bg-yellow-400 text-blue-900 font-semibold px-4 py-2 rounded-full shadow hover:bg-yellow-300 transition">
-                Learn More
-              </button>
-            </div>
-          ))
+          events.map(event => {
+            const { button } = require('./tierStyles').getTierStyles(event.tier);
+            return (
+              <div key={event.id} className="bg-white/10 backdrop-blur rounded-lg p-4 shadow-lg space-y-2">
+                <h3 className="text-xl font-bold text-white">{`🎉 ${event.title}`}</h3>
+                <p className="text-white/80">{`${event.date} · ${event.location}`}</p>
+                <TierBadge tier={event.tier} />
+                <button className={`w-full font-semibold px-4 py-2 rounded-full shadow hover:bg-yellow-300 transition ${button}`}>
+                  Learn More
+                </button>
+              </div>
+            );
+          })
         )}
       </div>
     </section>
