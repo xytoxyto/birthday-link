@@ -1,5 +1,6 @@
 "use client";
 "use client";
+"use client";
 import React, { useState } from 'react';
 import TierBadge from '@/components/TierBadge';
 
