@@ -1,1 +1,27 @@
-{}
+{
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/checkout/[tier]/page": "app/checkout/[tier]/page.js",
+  "/events/create/page": "app/events/create/page.js",
+  "/checkout/page": "app/checkout/page.js",
+  "/events/galaxy-rooftop/page": "app/events/galaxy-rooftop/page.js",
+  "/legal/page": "app/legal/page.js",
+  "/events/[id]/page": "app/events/[id]/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/birthday-blessing/page": "app/birthday-blessing/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/profile/page": "app/profile/page.js",
+  "/page": "app/page.js",
+  "/matches/page": "app/matches/page.js",
+  "/custom-cake/page": "app/custom-cake/page.js",
+  "/login/page": "app/login/page.js",
+  "/zodiac/[sign]/page": "app/zodiac/[sign]/page.js",
+  "/tiers/page": "app/tiers/page.js",
+  "/luxury/page": "app/luxury/page.js",
+  "/events/[id]/chat/page": "app/events/[id]/chat/page.js",
+  "/signup/page": "app/signup/page.js",
+  "/invite/page": "app/invite/page.js",
+  "/events/page": "app/events/page.js",
+  "/zodiac/[sign]/birth-chart-compatibility/page": "app/zodiac/[sign]/birth-chart-compatibility/page.js",
+  "/venues/page": "app/venues/page.js"
+}

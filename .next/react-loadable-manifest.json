@@ -1,0 +1,14 @@
+{
+  "app/events/[id]/chat/page.jsx -> react-confetti": {
+    "id": 7948,
+    "files": [
+      "static/chunks/948.09ac312bc914026f.js"
+    ]
+  },
+  "app/events/[id]/chat/page.jsx -> react-use": {
+    "id": 5320,
+    "files": [
+      "static/chunks/320.9469bbd1a4a0ceae.js"
+    ]
+  }
+}
