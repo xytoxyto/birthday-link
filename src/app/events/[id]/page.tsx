@@ -24,12 +24,12 @@ export async function generateMetadata(
 }
 
 
-interface PageProps {
-  params: { id: string };
-  searchParams?: Record<string, string | string[]>;
+type PageProps = {
+  params: { id: string }
+  searchParams?: { [key: string]: string | string[] | undefined }
 }
 
-export default function EventDetailPage({ params }: PageProps) {
+const EventDetailPage = ({ params }: PageProps) => {
   const { id } = params;
   // In a real app, you would fetch event data here
   // const { data: event, isLoading, error } = useSomeDataFetchingHook(id);
@@ -85,3 +85,5 @@ export default function EventDetailPage({ params }: PageProps) {
     </main>
   );
 }
+
+export default EventDetailPage;
