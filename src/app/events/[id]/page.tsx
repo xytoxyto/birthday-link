@@ -1,32 +1,32 @@
 
+
 import Image from 'next/image';
 import EventDetailClientStyles from './EventDetailClientStyles';
 import Link from 'next/link';
 import { type Metadata } from 'next';
-
+import React from 'react';
 
 type SegmentParams<T extends object = Record<string, unknown>> = T extends Record<string, unknown>
   ? { [K in keyof T]: T[K] extends string ? string | string[] | undefined : never }
   : T;
 
 interface PageProps {
-  params?: Promise<SegmentParams>;
-  searchParams?: Promise<Record<string, unknown>>;
+  params?: SegmentParams;
+  searchParams?: Record<string, unknown>;
 }
-import React from 'react';
 
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const awaitedParams = params ? await params : { id: '' };
+  const safeParams = params ?? { id: '' };
   return {
-    title: `Birthday Event: ${awaitedParams.id} | Birthday Link`,
+    title: `Birthday Event: ${safeParams.id} | Birthday Link`,
     description: 'View details for this curated birthday celebration with venue, guest list, and RSVP options.',
   };
 }
 
-export default async function EventDetailPage({ params }: PageProps) {
-  const awaitedParams = params ? await params : { id: '' };
-  const { id } = awaitedParams;
+export default function EventDetailPage({ params }: PageProps) {
+  const safeParams = params ?? { id: '' };
+  const { id } = safeParams;
   // In a real app, you would fetch event data here
   // const { data: event, isLoading, error } = useSomeDataFetchingHook(id);
   return (
