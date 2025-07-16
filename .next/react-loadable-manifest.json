@@ -2,19 +2,19 @@
   "app/admin/AdminDashboardClient.tsx -> ../../components/Admin/AdminDashboard": {
     "id": 2299,
     "files": [
-      "static/chunks/299.97be72a8625fc6d2.js"
+      "static/chunks/299.906e9d830bd08cf6.js"
     ]
   },
-  "app/events/[id]/chat/page.jsx -> react-confetti": {
+  "app/events/[eventId]/chat/page.jsx -> react-confetti": {
     "id": 7948,
     "files": [
-      "static/chunks/948.09ac312bc914026f.js"
+      "static/chunks/948.7badcb9dded8826e.js"
     ]
   },
-  "app/events/[id]/chat/page.jsx -> react-use": {
+  "app/events/[eventId]/chat/page.jsx -> react-use": {
     "id": 5320,
     "files": [
-      "static/chunks/320.9469bbd1a4a0ceae.js"
+      "static/chunks/320.a086af7fb57c27c2.js"
     ]
   }
 }
