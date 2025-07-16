@@ -1,6 +1,8 @@
 
+
 import Link from 'next/link';
 import BirthdayTimeline from './BirthdayTimeline';
+import TierSalesReport from './TierSalesReport';
 
 interface Event {
   id: number;
@@ -88,6 +90,11 @@ export default function DashboardPage() {
           </div>
         </div>
       </section>
+
+      {/* Tier Sales Reporting Section */}
+      <div className="mt-16">
+        <TierSalesReport />
+      </div>
     </main>
   );
 }
